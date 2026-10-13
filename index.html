@@ -138,6 +138,24 @@ h1 + .ptext{margin-top:12px;}
 .wrow{margin-bottom:12px;}
 .wrow .wt{display:flex;justify-content:space-between;gap:10px;font-size:14px;margin-bottom:3px;}
 .bigq{font-family:var(--display);font-weight:600;font-size:clamp(26px,7vw,40px);line-height:1.15;margin:10px 0 16px;overflow-wrap:anywhere;}
+
+.hub .wide{grid-column:1/-1;}
+.btab{width:100%;border-collapse:separate;border-spacing:4px 6px;table-layout:fixed;}
+.btab th{text-align:left;font-size:13px;color:var(--muted);font-weight:600;padding:0 2px;}
+.btab td{vertical-align:top;padding:0;}
+.btab td.given{background:var(--card);color:var(--cardtext);border-radius:8px;padding:11px 8px;font-weight:600;min-height:44px;overflow-wrap:break-word;word-break:normal;hyphens:auto;}
+@media (max-width:480px){.btab td.given{font-size:13px;padding:11px 6px;}.btab th{font-size:12px;}.btab input{font-size:14px;}}
+.btab input{width:100%;min-width:0;padding:10px 6px;font-size:15px;}
+.btab input.ok{border-color:var(--ok);border-width:2px;}
+.btab input.bad{border-color:var(--no);border-width:2px;}
+.btab .pfb{font-size:12px;line-height:1.25;overflow-wrap:anywhere;}
+
+.kline{min-height:56px;border:2px dashed var(--line);border-radius:12px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:12px;background:var(--panel);}
+.kph{color:var(--muted);font-size:14px;}
+.kbank{display:flex;flex-wrap:wrap;gap:8px;}
+.ktk{font-family:var(--body);font-size:20px;font-weight:600;border-radius:8px;padding:8px 12px;min-width:44px;background:var(--card);color:var(--cardtext);border:0;}
+.kline .ktk{background:var(--accent);color:var(--accent-ink);}
+.tkb.used{opacity:.25;}
 @media (prefers-reduced-motion: reduce){.card{transition:none;}}
 </style>
 </head>
@@ -147,6 +165,10 @@ h1 + .ptext{margin-top:12px;}
 <script>
 /* ---------- Beépített pakliak ---------- */
 var BUILT = [
+{"id": "jel-egyseg", "name": "Jelek: mértékegységek (m = méter, N = newton …)", "desc": "A tanár anyagában előforduló mértékegységek jele és neve", "cards": [["m (mértékegység)", "méter (hosszúság)"], ["km", "kilométer (1 km = 1000 m)"], ["cm", "centiméter"], ["mm", "milliméter"], ["nm", "nanométer"], ["m²", "négyzetméter (terület)"], ["m³", "köbméter (térfogat)"], ["dm³", "köbdeciméter (1 dm³ = 1 liter)"], ["l", "liter (térfogat; 1 l = 1 dm³)"], ["ml", "milliliter (1 ml = 1 cm³)"], ["kg", "kilogramm (tömeg)"], ["t (mértékegység)", "tonna (tömeg; 1 t = 1000 kg)"], ["mg", "milligramm (tömeg)"], ["s (mértékegység)", "másodperc (idő)"], ["perc", "perc (idő; 1 perc = 60 s)"], ["h", "óra (idő; 1 óra = 3600 s)"], ["m/s", "méter per másodperc (sebesség)"], ["km/h", "kilométer per óra (sebesség; km/h → m/s: ÷ 3,6)"], ["m/s²", "méter per másodpercnégyzet (gyorsulás)"], ["N", "newton (erő; 1 N = 1 kg·m/s²)"], ["kN", "kilonewton (1 kN = 1000 N)"], ["J", "joule (energia, munka; 1 J = 1 N·m)"], ["MJ", "megajoule (1 MJ = 10⁶ J)"], ["W (mértékegység)", "watt (teljesítmény)"], ["kW", "kilowatt (1 kW = 1000 W)"], ["TW", "terawatt (10¹² W)"], ["kWh", "kilowattóra (energia; 1 kWh = 3,6 MJ)"], ["Nm", "newtonméter (nyomaték; N·m)"], ["1/min (ford/perc)", "fordulat per perc (fordulatszám, n)"], ["rad", "radián (szög)"], ["rad/s", "radián per másodperc (szögsebesség, ω)"], ["m³/s", "köbméter per másodperc (áramlás, Q)"], ["V", "volt (villamos feszültség, pl. 230 V)"], ["A (mértékegység)", "amper (áramerősség)"], ["K", "kelvin (hőmérséklet SI-mértékegysége)"], ["Ft", "forint (ár, költség)"]]},
+{"id": "jel-betuk", "name": "Jelek: betűk a képletekben", "desc": "Mit jelent a v, s, F, M, i, η … és milyen egységben mérjük", "cards": [["v", "sebesség [m/s]"], ["v₀", "kezdősebesség [m/s]"], ["s (képletben)", "út [m]"], ["s₀", "kezdeti út [m]"], ["Δs", "az adott szakaszon megtett út [m]"], ["t (képletben)", "idő [s]"], ["a (képletben)", "gyorsulás [m/s²]"], ["F", "erő [N]"], ["F_net", "nettó (eredő) erő [N]"], ["F_s", "súrlódási erő [N]"], ["m (képletben)", "tömeg [kg]"], ["N (képletben)", "nyomóerő [N]; vízszintes talajon N = m·g"], ["g", "nehézségi gyorsulás, g = 9,81 m/s²"], ["μ", "súrlódási tényező (μ₀ tapadási, μ csúszási, μ_g gördülési)"], ["M (képletben)", "nyomaték [Nm]; M = F·r"], ["r", "erőkar (a korongnál a sugár) [m]"], ["k₁, k₂", "erőkarok; egyensúlyban F₁·k₁ = F₂·k₂"], ["R", "támaszerő [N]"], ["i", "áttétel (nincs mértékegysége); i>1: lassító"], ["n (képletben)", "fordulatszám [1/min]"], ["z", "fogszám (fogaskerék)"], ["d (képletben)", "átmérő (szíjtárcsa) [mm]"], ["η", "hatásfok = P_ki/P_be (nincs mértékegysége)"], ["η_h, η_m", "a hajtómű hatásfoka, a motor hatásfoka"], ["ω", "szögsebesség [rad/s]; ω = 2π·n/60"], ["P", "teljesítmény [W]"], ["P_be, P_ki", "felvett (bemeneti), leadott (kimeneti) teljesítmény"], ["P_vill", "villamos teljesítmény [W]; P_vill = U·I"], ["P_t", "tengelyteljesítmény [W]"], ["P_h", "hasznos teljesítmény [W]; P_h = ρ·g·Q·H"], ["E", "energia [kWh vagy J]; E = P·t"], ["W (képletben)", "munka, fékezési energia [J]; W = M·φ"], ["φ", "szög [rad]; egy teljes fordulat: φ = 2π"], ["U", "villamos feszültség [V]"], ["I", "áramerősség [A]"], ["H", "magasság [m] (a szivattyú és a rendszer görbéjében)"], ["H_sz, H_r", "a szivattyú jelleggörbéje, a rendszer ellenállásgörbéje (Q függvényében)"], ["Q", "áramlás [m³/s]"], ["ρ", "sűrűség (víz: ρ = 1000 kg/m³)"], ["T (alapmennyiség)", "hőmérséklet (az SI-mértékegysége a kelvin, K)"]]},
+{"id": "jel-ketto", "name": "Jelek: ugyanaz a betű, más jelentés", "desc": "Az m, M, k, N, t, s, d, n, h, µ, W, P … több dolgot is jelenthet", "cards": [["m", "méter (egység, pl. 15 m) · milli (előtag, 10⁻³, pl. mm) · tömeg (képletben, F = m·a)"], ["M", "mega (előtag, 10⁶, pl. MJ) · nyomaték (képletben, M = F·r)"], ["k", "kilo (előtag, 10³, pl. kN, kW) · erőkar (k₁, k₂)"], ["K és k", "K = kelvin (hőmérséklet egysége) · k = kilo (előtag): a kis- és nagybetű számít"], ["N", "newton (egység, pl. 6 N) · nyomóerő (képletben, N = m·g)"], ["t", "tonna (egység, 1 t = 1000 kg) · idő (képletben, v = s/t)"], ["s", "másodperc (egység, pl. 25 s) · út (képletben, s = v·t)"], ["d", "deci (előtag, 10⁻¹, pl. dm³) · átmérő (d₁, d₂ a szíjhajtásnál)"], ["n", "nano (előtag, 10⁻⁹, pl. nm) · fordulatszám (n [1/min])"], ["h", "hekto (előtag, 10²) · óra (1 h = 3600 s)"], ["µ és μ", "µ = mikro (előtag, 10⁻⁶) · μ = súrlódási tényező (pl. μ = 0,15)"], ["W", "watt (a teljesítmény egysége) · munka, energia (képletben, W = M·φ)"], ["P és p", "P = teljesítmény (képletben) · p = piko (előtag, 10⁻¹²)"], ["T és t", "T = tera (előtag, 10¹²); a hőmérséklet jele is T · t = tonna vagy idő"], ["G és g", "G = giga (előtag, 10⁹) · g = nehézségi gyorsulás (9,81 m/s²)"], ["A és a", "A = amper (áramerősség egysége) · a = gyorsulás (képletben)"], ["I és i", "I = áramerősség [A] · i = áttétel"], ["U és V", "U = feszültség (képletben) · V = volt (az egysége)"]]},
+{"id": "jel-kontextus", "name": "Jelek: mit jelent itt az m, N, t, s …?", "desc": "Kifejezések, és hogy a bennük lévő betűk mit jelentenek", "cards": [["15 m", "m = méter"], ["15 mm", "az első m = milli, a második m = méter → milliméter"], ["3 m/s", "méter per másodperc (sebesség)"], ["F = m·a", "F = erő, m = tömeg, a = gyorsulás"], ["6 N", "N = newton (erőegység)"], ["N = m·g", "N = nyomóerő, m = tömeg, g = 9,81 m/s²"], ["F_s = μ·N", "F_s = súrlódási erő, μ = súrlódási tényező, N = nyomóerő"], ["2,5 t", "t = tonna (1 t = 1000 kg)"], ["v = s/t", "v = sebesség, s = út, t = idő"], ["25 s", "s = másodperc"], ["M = F·r", "M = nyomaték, F = erő, r = erőkar"], ["30 Nm", "newtonméter, a nyomaték egysége"], ["n = 1450 1/min", "n = fordulatszám, 1/min = fordulat per perc"], ["15 kW", "k = kilo (10³), W = watt → kilowatt"], ["300 MJ", "M = mega (10⁶), J = joule → megajoule"], ["5 kN", "k = kilo (10³), N = newton → kilonewton"], ["60 W → TW", "W = watt (egység), T = tera (10¹²)"], ["1,5 kWh", "kilowattóra: energia (E = P·t)"], ["W = M·φ", "W = munka (fékezési energia) [J], M = nyomaték, φ = szög [rad]"], ["1 dm³", "d = deci (10⁻¹), m³ = köbméter → köbdeciméter"], ["230 V, I = 4 A", "V = volt (feszültség), I = áramerősség, A = amper"], ["i = z₂/z₁", "i = áttétel, z = fogszám"], ["i = d₂/d₁", "i = áttétel, d = átmérő"], ["P = U·I", "P = teljesítmény, U = feszültség, I = áramerősség"], ["P = M·ω", "P = teljesítmény, M = nyomaték, ω = szögsebesség"], ["H_sz(Q) = H_r(Q)", "H_sz = a szivattyú jelleggörbéje, H_r = a rendszer ellenállásgörbéje, Q = áramlás [m³/s]"]]},
  {
   "id": "elotagok",
   "name": "1. óra: előtagok és váltószámok",
@@ -807,14 +829,18 @@ function home(){
        '<label><input type="checkbox" id="optRev"'+(prefs.reverse?' checked':'')+'> Fordítva: válaszból kérdés</label>'+
        '<label><input type="checkbox" id="optUnk"'+(prefs.onlyUnknown?' checked':'')+'> Csak amit még nem tudok</label>'+
        '</div>';
-  h += '<div class="deck"><h2>Gyakorlás</h2><div class="meta">Számolás mindig új számokkal, csak a tanár képleteivel és feladattípusaival.</div><div class="hub">'+
+  h += '<div class="deck"><h2>Gyakorlás</h2><div class="meta">A tanár ZH-gyakorló fájljának szerkezetével és a tanári feladatokkal. Új számokkal, csak a tanár képleteivel.</div><div class="hub">'+
+       '<button class="btn wide" id="hZ1">1. ZH: beugró + mozgás + hajtáslánc (50 pont)</button>'+
+       '<button class="btn" id="hBu">SI beugró táblázat</button>'+
        '<button class="btn" id="hPrac">Számolós gyakorlás</button>'+
-       '<button class="btn" id="hZh">Minta ZH szimuláció</button>'+
+       '<button class="btn" id="hKep">Képlet gyakorló</button>'+
+       '<button class="btn" id="hJel">Jelek kvíz (m = méter…)</button>'+
        '<button class="btn" id="hHv">Hibavadász</button>'+
        '<button class="btn" id="hDia">Diagram-gyakorlat</button>'+
        '<button class="btn" id="hBlitz">Átváltás villámkör</button>'+
        '<button class="btn" id="hGame">Váltószámok sorba rakása</button>'+
-       '<button class="btn ghost" id="hWeak">Gyenge pontjaim</button></div></div>';
+       '<button class="btn ghost" id="hZh">Minta ZH (5. óra)</button>'+
+       '<button class="btn ghost wide" id="hWeak">Gyenge pontjaim</button></div></div>';
   decks.forEach(function(d){
     var n=d.cards.length, k=0;
     d.cards.forEach(function(c){ if(known[keyOf(d,c)]) k++; });
@@ -833,12 +859,16 @@ function home(){
   document.getElementById('optRev').onchange = function(e){ prefs.reverse=e.target.checked; save('si_prefs',prefs); };
   document.getElementById('optUnk').onchange = function(e){ prefs.onlyUnknown=e.target.checked; save('si_prefs',prefs); };
   document.getElementById('goImport').onclick = importView;
+  document.getElementById('hBu').onclick = buSetup;
   document.getElementById('hPrac').onclick = practiceSetup;
   document.getElementById('hZh').onclick = zhStart;
   document.getElementById('hHv').onclick = hvStart;
   document.getElementById('hDia').onclick = diaStart;
   document.getElementById('hBlitz').onclick = blitzStart;
   document.getElementById('hWeak').onclick = weakView;
+  document.getElementById('hZ1').onclick = z1Setup;
+  document.getElementById('hKep').onclick = kepSetup;
+  document.getElementById('hJel').onclick = jelSetup;
   document.getElementById('hGame').onclick = function(){ gameNew(load('si_game_easy', false)); gameView(); };
   [].forEach.call(app.querySelectorAll('[data-study]'),function(b){ b.onclick=function(){ startStudy(b.getAttribute('data-study')); }; });
   [].forEach.call(app.querySelectorAll('[data-reset]'),function(b){ b.onclick=function(){
@@ -1139,7 +1169,7 @@ var G=9.81;
 function par(x){return x<0?'('+pfmt(x)+')':pfmt(x);}
 var PXE={'T':12,'G':9,'M':6,'k':3,'h':2,'da':1,'':0,'d':-1,'c':-2,'m':-3,'µ':-6,'n':-9,'p':-12};
 function PT(q,unit,val,tol){return {q:q,unit:unit||'',val:val,tol:tol||0.015};}
-function TX(q,txt,cs){return {q:q,unit:'',txt:txt,cs:!!cs};}
+function TX(q,txt,cs,alts){return {q:q,unit:'',txt:txt,cs:!!cs,alts:alts||[]};}
 
 /* ---------- 1. óra: mértékegység-váltás ---------- */
 function genAtvPrefix(){
@@ -1556,7 +1586,12 @@ function pParse(s){
   return parseFloat(s);
 }
 function pCheckPart(p,raw){
-  if(p.txt!==undefined){var t=String(raw).trim();return p.cs?t===p.txt:t.toLowerCase()===p.txt.toLowerCase();}
+  if(p.txt!==undefined){
+    var t=String(raw).trim();if(t==='') return false;
+    var acc=[p.txt].concat(p.alts||[]);
+    if(p.cs){var x=symNorm(t);return acc.some(function(a){return symNorm(a)===x;});}
+    var nn=nrm(t);return acc.some(function(a){return nrm(a)===nn;});
+  }
   var v=pParse(raw);if(isNaN(v)) return false;
   if(Math.abs(p.val)<1e-12) return Math.abs(v)<1e-6;
   return Math.abs(v-p.val)/Math.abs(p.val)<=p.tol;
@@ -1885,7 +1920,984 @@ function zhSubmit(){
   document.getElementById('zhSummary').scrollIntoView({behavior:'smooth',block:'start'});
   var sb=document.getElementById('zSubmit');if(sb) sb.disabled=true;
 }
-// asd
+
+
+/* ---------- Jelek kvíz ---------- */
+var JQ={deck:null,cur:null,n:0,ok:0,done:false};
+var JDECKS={'jel-egyseg':'Mértékegységek','jel-betuk':'Betűk a képletekben','jel-kontextus':'Mit jelent itt?'};
+Object.keys(JDECKS).forEach(function(k){STATNAME['kviz-'+k]='Jelek kvíz: '+JDECKS[k];});
+function jelSetup(){
+  stopTimer();app.style.maxWidth='';
+  var h=pTop('jBack','')+"<h1>Jelek kvíz</h1><p class='sub'>Megkapsz egy jelet vagy kifejezést, és a négy válaszból ki kell választanod, mit jelent. Csak azok a jelek szerepelnek, amik a tanár anyagában is.</p><div class='hub'>";
+  Object.keys(JDECKS).forEach(function(k){h+="<button class='btn' data-jd='"+k+"'>"+esc(JDECKS[k])+"</button>";});
+  h+="<button class='btn ghost' data-jd='mind'>Mind együtt</button></div>";
+  app.innerHTML=h;
+  document.getElementById('jBack').onclick=home;
+  [].forEach.call(app.querySelectorAll('[data-jd]'),function(b){b.onclick=function(){JQ.deck=b.getAttribute('data-jd');JQ.n=0;JQ.ok=0;jelNext();};});
+}
+function jelNext(){
+  var id=JQ.deck==='mind'?pick(Object.keys(JDECKS)):JQ.deck;
+  var d=BUILT.filter(function(x){return x.id===id;})[0],c=pick(d.cards);
+  var others=shuffle(d.cards.filter(function(x){return x[1]!==c[1];}).map(function(x){return x[1];}));
+  var seen={},opts=[];others.forEach(function(t){if(!seen[t]&&opts.length<3){seen[t]=1;opts.push(t);}});
+  opts.push(c[1]);shuffle(opts);
+  JQ.cur={deck:id,q:c[0],a:c[1],opts:opts};JQ.done=false;jelShow();
+}
+function jelShow(){
+  var c=JQ.cur;
+  var h=pTop('jBack','összesen: '+JQ.ok+' / '+JQ.n+' jó')+"<div class='ptag'>"+esc(JDECKS[c.deck])+"</div><div class='bigq'>"+esc(c.q)+"</div><p><b>Mit jelent?</b></p><div class='hvlist'>";
+  c.opts.forEach(function(o,i){h+="<button class='hvl' data-o='"+i+"'><span>"+esc(o)+"</span></button>";});
+  h+="</div><div id='jFb'></div>";
+  app.innerHTML=h;
+  document.getElementById('jBack').onclick=jelSetup;
+  [].forEach.call(app.querySelectorAll('.hvl'),function(b){b.onclick=function(){jelPick(+b.getAttribute('data-o'));};});
+}
+function jelPick(i){
+  if(JQ.done) return;JQ.done=true;
+  var c=JQ.cur,ok=c.opts[i]===c.a;JQ.n++;if(ok)JQ.ok++;pRecord('kviz-'+c.deck,ok);
+  var bs=app.querySelectorAll('.hvl');
+  c.opts.forEach(function(o,j){if(o===c.a) bs[j].classList.add('good');});
+  if(!ok) bs[i].classList.add('bad');
+  document.getElementById('jFb').innerHTML="<div class='pres'><div class='verdict "+(ok?'ok':'bad')+"'>"+(ok?'Helyes!':'Nem ez.')+"</div><p><b>"+esc(c.q)+"</b> = "+esc(c.a)+"</p><button class='btn' id='jNext'>Következő</button></div>";
+  document.getElementById('jNext').onclick=jelNext;document.querySelector('.count').textContent='összesen: '+JQ.ok+' / '+JQ.n+' jó';
+}
+
+
+/* ---------- SI beugró táblázat ---------- */
+var BU_TIERS=[['alap','Alapegységek (m, kg, s, A, K, mol, cd)'],['szarm','Származtatott egységek (N, J, W, V, rad)'],['oss','Összetett egységek (m/s, m/s², N·m, rad/s, 1/min, m², m³, km/h)'],['egyeb','Egyéb, ami a tanár anyagában szerepel (t, l, h, perc, kWh)']];
+function bu(sym,names,qtys,tier,alts){return {id:'u:'+sym,sym:sym,names:names,qtys:qtys,tier:tier,alts:alts||[]};}
+var BU_UNITS=[
+ bu('m',['méter'],['hosszúság'],'alap'),
+ bu('kg',['kilogramm'],['tömeg'],'alap'),
+ bu('s',['másodperc'],['idő'],'alap'),
+ bu('A',['amper'],['áramerősség','elektromos áramerősség'],'alap'),
+ bu('K',['kelvin'],['hőmérséklet','termodinamikai hőmérséklet'],'alap'),
+ bu('mol',['mól','mol'],['anyagmennyiség'],'alap'),
+ bu('cd',['kandela'],['fényerősség'],'alap'),
+ bu('N',['newton'],['erő'],'szarm'),
+ bu('J',['joule'],['energia','munka','hő'],'szarm'),
+ bu('W',['watt'],['teljesítmény'],'szarm'),
+ bu('V',['volt'],['feszültség','villamos feszültség','elektromos feszültség'],'szarm'),
+ bu('rad',['radián'],['szög','síkszög'],'szarm'),
+ bu('m/s',['méter per másodperc'],['sebesség'],'oss'),
+ bu('m/s²',['méter per másodpercnégyzet','méter per másodperc a négyzeten'],['gyorsulás'],'oss'),
+ bu('N·m',['newtonméter','newton méter'],['nyomaték','forgatónyomaték'],'oss'),
+ bu('rad/s',['radián per másodperc'],['szögsebesség'],'oss'),
+ bu('1/min',['fordulat per perc'],['fordulatszám'],'oss',['ford/perc','1/perc']),
+ bu('m²',['négyzetméter'],['terület'],'oss'),
+ bu('m³',['köbméter'],['térfogat'],'oss'),
+ bu('km/h',['kilométer per óra'],['sebesség'],'oss'),
+ bu('t',['tonna'],['tömeg'],'egyeb'),
+ bu('l',['liter'],['térfogat'],'egyeb'),
+ bu('h',['óra'],['idő'],'egyeb'),
+ bu('perc',['perc'],['idő'],'egyeb',['min']),
+ bu('kWh',['kilowattóra'],['energia'],'egyeb')
+];
+var BU_PREF=[['tera',['terra'],'T',12],['giga',[],'G',9],['mega',[],'M',6],['kilo',[],'k',3],['hekto',['hecto'],'h',2],['deka',['deca'],'da',1],['deci',[],'d',-1],['centi',[],'c',-2],['milli',[],'m',-3],['mikro',['micro'],'µ',-6],['nano',[],'n',-9],['piko',['pico'],'p',-12]].map(function(x){return {id:'p:'+x[2],names:[x[0]].concat(x[1]),sym:x[2],e:x[3]};});
+STATNAME['bu-egyseg']='SI beugró: mértékegységek (jel, név, mennyiség)';
+STATNAME['bu-elotag']='SI beugró: előtagok és váltószámok';
+var buMiss=load('si_bu_miss',{});
+var BU={kind:'egyseg',tables:[],t0:0,done:false};
+
+function nrm(x){return String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ').trim();}
+function symNorm(x){return String(x).replace(/\s+/g,'').replace(/[·*⋅.]/g,'').replace(/\^2|²/g,'2').replace(/\^3|³/g,'3').replace(/μ/g,'µ').replace(/_/g,'');}
+function buShow(c,it){
+  if(c.type==='sym'||c.type==='psym') return it.sym;
+  if(c.type==='name'||c.type==='pname') return it.names[0];
+  if(c.type==='qty') return it.qtys[0];
+  return '10'+sup(it.e);
+}
+function buCheck(c,it,raw){
+  var t=c.type;
+  if(t==='sym'){var x=symNorm(raw);return [it.sym].concat(it.alts).some(function(a){return symNorm(a)===x;});}
+  if(t==='psym'){var y=symNorm(raw);return y===symNorm(it.sym)||(it.sym==='µ'&&y==='u');}
+  if(t==='name'||t==='pname'){var n=nrm(raw);return n!==''&&it.names.some(function(a){return nrm(a)===n;});}
+  if(t==='qty'){var q=nrm(raw);return q!==''&&it.qtys.some(function(a){return nrm(a)===q;});}
+  var v=pParse(raw);if(isNaN(v)) return false;
+  var tv=Math.pow(10,it.e);
+  return Math.abs(v-tv)<=Math.abs(tv)*1e-6||v===it.e;
+}
+function buWeighted(pool,n){
+  var items=pool.slice(),out=[];
+  while(out.length<n&&items.length){
+    var w=items.map(function(x){return 1+2*Math.min(3,buMiss[x.id]||0);});
+    var sum=w.reduce(function(a,b){return a+b;},0),r=Math.random()*sum,k=0;
+    for(;k<items.length-1;k++){r-=w[k];if(r<=0) break;}
+    out.push(items.splice(k,1)[0]);
+  }
+  return out;
+}
+function buUnitTable(){
+  var sc=load('si_bu_scope',{alap:true,szarm:false,oss:false,egyeb:false});
+  var pool=BU_UNITS.filter(function(u){return sc[u.tier];});
+  if(!pool.length) pool=BU_UNITS.filter(function(u){return u.tier==='alap'||u.tier==='szarm';});
+  var items=buWeighted(pool,12);
+  var rows=items.map(function(it){
+    var dup=items.some(function(o){return o!==it&&o.qtys[0]===it.qtys[0];});
+    var g=pick(dup?['sym','name']:['sym','name','qty']);
+    return {item:it,cells:[{type:'sym',given:g==='sym'},{type:'name',given:g==='name'},{type:'qty',given:g==='qty'}]};
+  });
+  return {stat:'bu-egyseg',title:'Mértékegységek',heads:['Mértékegység (jele)','Megnevezés','Mennyiség'],rows:rows};
+}
+function buPrefTable(){
+  var items=buWeighted(BU_PREF,12);
+  var rows=items.map(function(it){
+    var g=pick(['pname','psym','pexp']);
+    return {item:it,cells:[{type:'pname',given:g==='pname'},{type:'psym',given:g==='psym'},{type:'pexp',given:g==='pexp'}]};
+  });
+  return {stat:'bu-elotag',title:'Előtagok és váltószámok',heads:['Előtag neve','Jele','Váltószám (10 a …)'],rows:rows};
+}
+function buSetup(){
+  stopTimer();app.style.maxWidth='';
+  var sc=load('si_bu_scope',{alap:true,szarm:false,oss:false,egyeb:false});
+  var h=pTop('buBack','')+"<h1>SI beugró táblázat</h1><p class='sub'>A tanár ZH-gyakorlója szerint a beugró 0.a része az SI 7 alapmennyisége: a mennyiség nevéből kell megadni a jelét, az SI-mértékegységét és annak jelét. Ezt gyakorolhatod itt táblázatban, valamint külön az előtagokat és más mértékegységeket is. A teljes beugró-sor (átváltásokkal együtt) a főoldalon az „1. ZH” gombbal érhető el.</p>";
+  h+="<h2>Más mértékegységek: miből kérdezzen?</h2><div class='opts'>";
+  BU_TIERS.forEach(function(t){h+="<label><input type='checkbox' data-tier='"+t[0]+"'"+(sc[t[0]]?' checked':'')+"> "+esc(t[1])+"</label>";});
+  h+="</div><label style='display:flex;gap:10px;align-items:center;margin:8px 0'><input type='checkbox' id='buRev'"+(load('si_bu_rev',false)?' checked':'')+"> Az SI alapmennyiségeknél fordítva is kérdezhet (a ZH-n a mennyiség neve adott)</label>";
+  h+="<div class='hub' style='margin-top:12px'><button class='btn wide' data-bu='alap'>SI alapmennyiségek (0.a)</button><button class='btn' data-bu='egyseg'>Más mértékegységek</button><button class='btn' data-bu='elotag'>Előtagok</button><button class='btn wide' data-bu='mind'>Alapmennyiségek + előtagok</button></div>";
+  app.innerHTML=h;
+  document.getElementById('buBack').onclick=home;
+  [].forEach.call(app.querySelectorAll('[data-bu]'),function(b){b.onclick=function(){
+    var s={};[].forEach.call(app.querySelectorAll('[data-tier]'),function(c){s[c.getAttribute('data-tier')]=c.checked;});save('si_bu_scope',s);var rv=document.getElementById('buRev');if(rv) save('si_bu_rev',rv.checked);
+    buStart(b.getAttribute('data-bu'));
+  };});
+}
+function buStart(kind){
+  stopTimer();BU.kind=kind;BU.done=false;BU.t0=Date.now();
+  BU.tables=kind==='alap'?[buAlapTable()]:kind==='egyseg'?[buUnitTable()]:kind==='elotag'?[buPrefTable()]:[buAlapTable(),buPrefTable()];
+  buRender();
+  if(kind==='mind') window.pTimer=setInterval(function(){var el=document.getElementById('buTimer');if(el&&!BU.done) el.textContent=fmtTime(Date.now()-BU.t0);},500);
+}
+function buRender(){
+  app.style.maxWidth='760px';
+  var h=pTop('buBack',BU.kind==='mind'?"<span class='timer' id='buTimer'>0:00</span>":'')+"<h1>SI beugró</h1><p class='sub'>Soronként egy cella adott, a többit töltsd ki. A kis- és nagybetű számít (m ≠ M, k ≠ K), az ékezeteket nem kell pontosan beírni. A váltószámot így is megadhatod: 10^6, vagy csak 6.</p><div id='buSummary'></div>";
+  BU.tables.forEach(function(t,ti){
+    h+="<h2 style='margin-top:18px'>"+esc(t.title)+"</h2><table class='btab'><thead><tr>"+t.heads.map(function(x){return '<th>'+esc(x)+'</th>';}).join('')+"</tr></thead><tbody>";
+    t.rows.forEach(function(r,ri){
+      h+='<tr>'+r.cells.map(function(c,ci){
+        if(c.given) return "<td class='given'>"+esc(buShow(c,r.item))+"</td>";
+        var id='bu'+ti+'_'+ri+'_'+ci;
+        return "<td><input type='text' id='"+id+"' autocomplete='off' autocapitalize='off' spellcheck='false' aria-label='"+esc(t.heads[ci])+", "+(ri+1)+". sor'><div class='pfb' id='"+id+"fb'></div></td>";
+      }).join('')+'</tr>';
+    });
+    h+="</tbody></table>";
+  });
+  h+="<div class='gacts' style='margin-top:16px'><button class='btn' id='buSubmit'>Beadás</button><button class='btn ghost' id='buNew'>Új táblázat</button></div>";
+  app.innerHTML=h;
+  document.getElementById('buBack').onclick=buSetup;
+  document.getElementById('buSubmit').onclick=buSubmit;
+  document.getElementById('buNew').onclick=function(){buStart(BU.kind);};
+  var ins=[].slice.call(app.querySelectorAll('.btab input'));
+  ins.forEach(function(el,i){el.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();if(i<ins.length-1) ins[i+1].focus();else buSubmit();}};});
+  if(ins[0]) ins[0].focus();
+}
+function buSubmit(){
+  if(BU.done) return;BU.done=true;stopTimer();
+  var tot=0,okc=0,rowsAll=0,rowsOk=0;
+  BU.tables.forEach(function(t,ti){
+    var tr=0,tok=0;
+    t.rows.forEach(function(r,ri){
+      var rowOk=true;
+      r.cells.forEach(function(c,ci){
+        if(c.given) return;
+        var id='bu'+ti+'_'+ri+'_'+ci,el=document.getElementById(id),ok=buCheck(c,r.item,el.value);
+        tot++;if(ok) okc++;else rowOk=false;
+        el.classList.add(ok?'ok':'bad');el.readOnly=true;
+        document.getElementById(id+'fb').textContent=ok?'':'Helyes: '+buShow(c,r.item);
+      });
+      var k=r.item.id;buMiss[k]=rowOk?Math.max(0,(buMiss[k]||0)-1):(buMiss[k]||0)+1;
+      pRecord(t.stat,rowOk);rowsAll++;if(rowOk) rowsOk++;
+    });
+  });
+  save('si_bu_miss',buMiss);
+  var pct=Math.round(100*okc/tot);
+  document.getElementById('buSummary').innerHTML="<div class='pres'><div class='verdict "+(pct>=51?'ok':'bad')+"'>"+okc+" / "+tot+" cella helyes ("+pct+"%)</div><p>"+rowsOk+" / "+rowsAll+" sor teljesen jó."+(BU.kind==='mind'?" Idő: "+fmtTime(Date.now()-BU.t0)+".":'')+"</p><p class='note'>A tanár szerint a beugró feltétele legalább elégséges szint. A pontos beugró-határt nem ismerem, ez csak tájékoztató. A pirossal jelölt sorokból a következő táblázatban több jön.</p></div>";
+  document.getElementById('buSummary').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+
+/* ---------- Képletek: mire való? ---------- */
+var KFRAW=[
+ ['atv-tort',1,'érték · (számláló / nevező), a tört értéke 1','mértékegység átváltása egyenértékű törttel','A tört számlálója és nevezője egyenértékű, ezért az érték nem változik, csak az egység. Több lépésben láncolható (cm → m → km)'],
+ ['atv-ter',1,'terület: a prefix-szorzó négyzetre emelkedik','terület átváltása (m², cm², mm²…)','1 m² = 100² cm² = 10 000 cm², nem 100'],
+ ['atv-terf',1,'térfogat: a prefix-szorzó köbre emelkedik','térfogat átváltása (m³, mm³…)','1 m³ = 1000³ mm³ = 10⁹ mm³'],
+ ['atv-N',1,'1 N = 1 kg·m/s²','a newton definíciója','Azonosság, nem átváltás: nincs szorzó, csak átnevezés'],
+ ['atv-J',1,'1 J = 1 N·m','a joule definíciója','Azonosság, nem átváltás'],
+ ['atv-l',1,'1 l = 1 dm³,  1 ml = 1 cm³','a térfogategységek közti azonosság','A liter és a köbdeciméter ugyanaz'],
+ ['kin-kmh',2,'÷ 3,6 (km/h → m/s),  × 3,6 (m/s → km/h)','km/h és m/s közti átváltás','Mindig SI-be váltunk számolás előtt'],
+ ['kin-vst',2,'v = s/t   →   s = v·t','egyenletes mozgás: sebesség, út, idő','v = állandó: az út a sebesség és az idő szorzata'],
+ ['kin-v',2,'v = v₀ + a·t','végsebesség egyenletesen változó mozgásnál','a = állandó: a sebesség a kezdősebességből és a gyorsulásból adódik'],
+ ['kin-s',2,'s = v₀·t + ½·a·t²','megtett út egyenletesen változó mozgásnál','a = állandó'],
+ ['kin-allo',2,'v = a·t   és   s = ½·a·t²','végsebesség és út állóból indulva (v₀ = 0)',''],
+ ['kin-a',2,'a = (v₂ − v₁)/t','gyorsulás egy szakaszon','A szakasz sebességváltozása osztva az idővel, pl. a = (12 − 6)/3 = 2 m/s²'],
+ ['kin-ter',2,'út = a v–t görbe alatti terület','megtett út a v–t grafikonból','Pl. egyenletes gyorsításnál ½·t·v'],
+ ['kin-mered',2,'s–t meredeksége = v;   v–t meredeksége = a','sebesség és gyorsulás a grafikon meredekségéből','A sebesség sosem lehet negatív egy fizikai mozgásnál'],
+ ['kin-szak',2,'Δs = Δs₁ + Δs₂ + Δs₃','többszakaszos mozgás teljes útja','Minden szakasz VÉGSEBESSÉGÉT vidd tovább a következő szakasz KEZDŐSEBESSÉGÉNEK'],
+ ['kt-F',3,'F = m·a   →   a = F/m','erő, tömeg és gyorsulás kapcsolata (kinetika alapja)','Ha több erő hat, a NETTÓ (eredő) erő számít'],
+ ['kt-N',3,'N = m·g','nyomóerő vízszintes talajon','g = 9,81 m/s²'],
+ ['kt-Fs',3,'F_s = μ·N','súrlódási erő','A mozgást akadályozó erő. μ₀ > μ > μ_g: tapadási (megindítás) > csúszási (mozgásban) > gördülési'],
+ ['kt-Fnet',3,'F_net = F − F_s','nettó erő súrlódásnál','A súrlódás is egy erő: F = m·a-ban mindig a nettó erő számít, nem a húzóerő önmagában'],
+ ['kt-M',3,'M = F·r','nyomaték','Erő és erőkar szorzata'],
+ ['kt-emelo',3,'ΣM = 0   (F₁·k₁ = F₂·k₂)','egyensúly, emelő-elv','Egyensúlyban a nyomatékok összege nulla. Minél hosszabb a kar, annál kisebb erő kell'],
+ ['kt-F2',3,'F₂ = F₁·k₁/k₂','az egyensúlyozó erő az emelőnél','Az F₁·k₁ = F₂·k₂ átrendezve'],
+ ['kt-R',3,'R = F₁ + F₂','támaszerő, ha mindkét erő lefelé hat',''],
+ ['kt-k1',3,'k₁ = L − k₂','a hosszú erőkar a rúd hosszából és a rövid karból',''],
+ ['kt-i',3,'i = n₁/n₂ = z₂/z₁ = d₂/d₁','áttétel','A hajtó és hajtott fordulatszám aránya; fogaskeréknél a fogszámok, szíjnál az átmérők aránya. i>1: lassító'],
+ ['kt-n2',3,'n₂ = n₁/i','hajtott fordulatszám',''],
+ ['kt-M2',3,'M₂ = i·M₁·η','hajtott nyomaték hatásfokkal','A lassító annyiszorosára növeli a nyomatékot, ahányszor csökkenti a fordulatot; a hatásfok ebből mindig elvesz valamennyit. Ideálisan (η = 1): M₂ = i·M₁'],
+ ['kt-ie',3,'i = i₁·i₂·i₃','eredő áttétel több fokozatnál','A fokozatok áttételének szorzata'],
+ ['kt-ee',3,'η_e = η₁·η₂·η₃   (pl. 0,97³)','eredő hatásfok több fokozatnál','A fokozatok hatásfokának szorzata, két azonos fokozatnál η²'],
+ ['kt-Mf',3,'M_f = F_s·r','féknyomaték',''],
+ ['kt-W',3,'W = M·φ   (egy fordulat: φ = 2π)','fékezési energia, munka forgásnál',''],
+ ['kt-Mki',3,'M_ki = M_be·i·η²','kimeneti nyomaték két fokozat hatásfokával','Az η² az eredő hatásfok két azonos hatásfokú fokozatnál'],
+ ['kt-Fek',3,'F = m·|a|','fékerő nagysága','Az a lassulás abszolút értékével'],
+ ['p-w',4,'ω = 2π·n/60','szögsebesség a fordulatszámból','n [1/min], ω [rad/s]'],
+ ['p-P',4,'P = M·ω = M·2π·n/60','mechanikai teljesítmény nyomatékból és fordulatszámból','n [1/min]'],
+ ['p-M',4,'M = P/ω','nyomaték a teljesítményből és a szögsebességből',''],
+ ['p-Pv',4,'P_vill = U·I','villamos teljesítmény (egyfázisú)','A hálózati feszültségből és a felvett áramból [W]'],
+ ['p-eta',4,'η = P_ki/P_be','hatásfok: a leadott és a felvett teljesítmény aránya','Innen P_ki = η·P_be, vagy P_be = P_ki/η. A leadott sosem lehet nagyobb a felvettnél'],
+ ['p-etat',4,'η = η_h·η_m','teljes hatásfok hajtóműnél és motornál','A hajtómű és a motor hatásfokának szorzata'],
+ ['p-Pm',4,'P_motor = P/η_h','a motor tengelyteljesítménye a szükséges teljesítményből','A hajtómű hatásfokával osztva; a kedvező terhelésre (pl. 55%) osztjuk tovább'],
+ ['p-Pvm',4,'P_vill = P_motor/η_m','felvett villamos teljesítmény a motor tengelyteljesítményéből',''],
+ ['p-I1',4,'I = P_vill/U','áram egy fázison (230 V)',''],
+ ['p-I3',4,'I = P_vill/(√3·400)','áram három fázison (400 V)','A háromfázisú betáplálás fázisonként kb. harmadannyi áramot húz'],
+ ['p-in',4,'i = n_motor/n_keverő','áttétel a motor és a hajtott gép fordulatszámából','Ha nagy (pl. 17,6), egy fokozattal nem gazdaságos, kétfokozatú hajtómű kell'],
+ ['p-E',4,'E = P·t','energia a teljesítményből és az időből','Ez az, amit a villanyszámla kWh-ban mér'],
+ ['p-kwh',4,'1 kWh = 3,6 MJ','kWh átváltása joule-ra','Azaz 3 600 000 J'],
+ ['p-mp',4,'H_sz(Q) = H_r(Q)','a munkapont meghatározása (gépkapcsolat)','A szivattyú jelleggörbéje és a rendszer ellenállásgörbéje metszéspontja'],
+ ['p-Ph',4,'P_h = ρ·g·Q·H','hasznos teljesítmény a munkapontban','ρ = 1000 (víz), g = 9,81'],
+ ['p-Pt',4,'P_t = P_h/η','tengelyteljesítmény a hasznos teljesítményből',''],
+ ['z-ds',5,'Δs = (v_kezdő + v_vég)/2 · Δt','szakaszon megtett út állandó gyorsulásnál az átlagsebességből','Vagy v₀·Δt + ½·a·Δt²'],
+ ['z-a',5,'a = (v_vég − v_kezdő)/Δt','gyorsulás egy szakaszon','Negatív, ha a jármű lassul'],
+ ['z-s',5,'s = Δs₁ + Δs₂ + Δs₃','teljes megtett út','A szakaszok útjainak összege'],
+ ['z-sref',5,'távolság = s₀ + s','távolság a referenciaponttól a mozgás végén','s₀ a kezdeti távolság a referenciaponttól'],
+ ['z-vatl',5,'v_átl = s/t','átlagsebesség a teljes mozgás alatt','Az összes út osztva az összes idővel'],
+ ['z-Ffek',5,'F = m·|a|','fékerő a lassulás nagyságából','A lassulás abszolút értékével számolunk'],
+ ['z-Fgy',5,'F = m·a','gyorsításhoz szükséges erő','A mozgásellenállást nem vesszük figyelembe'],
+ ['z-N',5,'N = F/μ','rányomó erő: ekkora erővel kell nyomni a féket','A fékező súrlódási erő F = μ·N'],
+ ['z-Wf',5,'W = F·Δs','a fék munkája a lassítás közben','Δs a lassuló szakasz útja'],
+ ['z-Patl',5,'P_átl = F·Δs/Δt = F·v_átl','a fék átlagos teljesítménye a lassítás közben','v_átl a lassuló szakasz átlagsebessége'],
+ ['z-diag',5,'a–t: lépcsős;  v–t: törtvonal;  s–t: folytonos','az a–t, v–t és s–t diagram jellege','Az a–t a szakaszhatárokon ugrik; a v–t meredeksége a gyorsulás; az s–t meredeksége az aktuális sebesség (a = 0 szakaszon egyenes, egyébként parabolaív)'],
+ ['z-Pfel',5,'P_fel = U·I','a hálózatból felvett teljesítmény','Egyfázisú hálózaton'],
+ ['z-Mmax',5,'M_max = P_max/ω','a motor maximális nyomatéka a névleges teljesítményből','ω = 2π·n/60'],
+ ['z-Psh',5,'P_tengely = P_fel·η_m','a motor tengelyteljesítménye a felvett áram mellett',''],
+ ['z-ie',5,'i = i₁·i₂','eredő áttétel soros fokozatoknál','Soros kapcsolásnál az áttételek szorzódnak; szíjnál az átmérők, fogaskeréknél és láncnál a fogszámok aránya'],
+ ['z-nki',5,'n_ki = n_be/i','kimenő fordulatszám',''],
+ ['z-eta',5,'η = η_m·η₁·η₂','teljes hatásfok (motor + hajtáslánc)','Soros elemeknél a hatásfokok szorzódnak. Csak a hajtáslánc: η₁·η₂, ha a feladat kifejezetten ezt kérdezi'],
+ ['z-Pki',5,'P_ki = P_fel·η','a hajtáslánc végén mért teljesítmény','Ellenőrzés: a motor tengelyteljesítménye (P_fel·η_m) nem lehet nagyobb P_max-nál'],
+ ['z-loss',5,'P_veszt = P_fel − P_ki','veszteségteljesítmény',''],
+ ['z-Mki',5,'M_ki = P_ki/ω_ki','nyomaték a hajtáslánc kimenetén','ω_ki = 2π·n_ki/60'],
+ ['z-conv',5,'1 kWh = 1000 Wh = 3,6 MJ = 3 600 000 J','energiaegységek közti átváltás','Pl. 900 kJ = 250 Wh'],
+ ['z-vol',5,'1 l = 1 dm³ = 1000 cm³ = 10⁻³ m³','térfogategységek közti átváltás','Pl. 250 cm³ = 0,25 l; 2 l = 2000 cm³'],
+ ['z-time',5,'1 h = 3600 s','óra és másodperc közti átváltás','']
+];
+var KF=KFRAW.map(function(r){return {id:r[0],l:r[1],e:r[2],p:r[3],n:r[4]};});
+function kCap(t){return t.charAt(0).toUpperCase()+t.slice(1);}
+(function(){
+  var nm={1:'1. óra: mértékegység-váltás',2:'2. óra: kinematika',3:'3. óra: kinetika, nyomaték, áttétel',4:'4. óra: teljesítmény, hatásfok, energia',5:'ZH-gyakorló (1. ZH): mozgás és hajtáslánc'};
+  var ds=[1,2,3,4,5].map(function(l){return {id:'kep-'+l,name:'Képletek, '+nm[l],desc:'Melyik képlet mire való',cards:KF.filter(function(f){return f.l===l;}).map(function(f){return [f.e,kCap(f.p)+(f.n?'. '+f.n+'.':'.')];})};});
+  BUILT.splice.apply(BUILT,[4,0].concat(ds));
+})();
+
+/* feladat → melyik képlet kell (a tanár példáiból) */
+var KS=[
+ ['Váltsd át: 3000 m² → cm²','atv-ter'],['Váltsd át: 300 000 mm³ → m³','atv-terf'],['Váltsd át: 6 kg·m/s² → N','atv-N'],['Váltsd át: 50 J → N·m','atv-J'],['Váltsd át: 7 l → dm³','atv-l'],
+ ['Hány m/s a 72 km/h?','kin-kmh'],
+ ['Egy szivattyú 0,5 m/s-mal tölti fel a 12 m hosszú csövet. Mennyi idő alatt ér a folyadék a végére?','kin-vst'],
+ ['Egy test állóból indul, a = 2 m/s², 5 s-ig gyorsul. Mekkora a végsebessége?','kin-allo'],
+ ['Egy test v₀ = 4 m/s-ról indul, a = 1,5 m/s², 6 s-ig gyorsul. Mekkora a végsebessége?','kin-v'],
+ ['Egy test v₀ = 4 m/s-ról indul, a = 1,5 m/s², 6 s-ig gyorsul. Mekkora a megtett útja?','kin-s'],
+ ['Egy szalag 6 m/s-ról fékez a = −1,5 m/s² lassulással. Mennyi idő alatt áll meg?','kin-v'],
+ ['A 4–7 s szakaszban a sebesség 6 m/s-ról 12 m/s-ra nő. Mekkora a gyorsulás?','kin-a'],
+ ['Egy v–t grafikonon a test 10 s alatt egyenletesen gyorsul 0-ról 8 m/s-ra. Mekkora a megtett út?','kin-ter'],
+ ['Három szakaszból álló mozgás. Mekkora a teljes megtett út?','kin-szak'],
+ ['Mit olvasol le az s–t és a v–t grafikon meredekségéből?','kin-mered'],
+ ['Egy 1200 kg tömegű targonca F = 3000 N húzóerő hatására gyorsul, súrlódásmentesnek tekintve. Mekkora a gyorsulása?','kt-F'],
+ ['Ugyanaz a 1200 kg-os targonca valós talajon áll. Mekkora a nyomóerő?','kt-N'],
+ ['Ugyanez a targonca, μ = 0,15 csúszási súrlódással. Mekkora a súrlódási erő?','kt-Fs'],
+ ['A húzóerő 3000 N, a súrlódási erő 1765,8 N. Mekkora az erő, ami gyorsítja a targoncát?','kt-Fnet'],
+ ['1000 mm hosszú rúd egyik végén F₁ = 1000 N lefelé; az alátámasztás a másik végtől 250 mm-re. Mekkora erő kell a másik végén?','kt-emelo'],
+ ['Ugyanennél a rúdnál mekkora a támaszerő, ha mindkét erő lefelé hat?','kt-R'],
+ ['A rúd hossza 1000 mm, a rövid kar 250 mm. Mekkora a hosszú kar?','kt-k1'],
+ ['Fogaskerékpár: z₁ = 20 fog, z₂ = 60 fog. Mekkora az áttétel?','kt-i'],
+ ['n₁ = 1500 1/min, az áttétel i = 3. Mekkora a hajtott fordulatszám?','kt-n2'],
+ ['M₁ = 10 Nm, az áttétel i = 3. Mekkora a hajtott nyomaték?','kt-M2'],
+ ['Háromfokozatú hajtómű: i₁ = 3, i₂ = 2,5, i₃ = 2. Mekkora az eredő áttétel?','kt-ie'],
+ ['A háromfokozatú hajtómű minden fokozatának hatásfoka η = 0,97. Mekkora az eredő hatásfok?','kt-ee'],
+ ['A fékezett korongnál F_s = 120 N, r = 0,2 m. Mekkora a féknyomaték?','kt-Mf'],
+ ['A féknyomaték 24 Nm. Mekkora a fékezési energia egy teljes fordulat alatt?','kt-W'],
+ ['Kétfokozatú hajtómű: M_be = 15 Nm, i_eredő = 7,5, mindkét fokozat η = 0,96. Mekkora a kimeneti nyomaték?','kt-Mki'],
+ ['A 600 kg-os targonca lassulása a = −4 m/s². Mekkora a fékerő?','kt-Fek'],
+ ['Egy villanymotor M = 50 Nm nyomatékot ad le n = 1450 1/min fordulaton. Mekkora a szögsebesség?','p-w'],
+ ['Ugyanennek a motornak (M = 50 Nm, n = 1450 1/min) mekkora a leadott teljesítménye?','p-P'],
+ ['Egy keverő P = 2 kW teljesítményt igényel n = 50 1/min fordulaton. Mekkora a nyomatéka?','p-M'],
+ ['Egy motor 230 V-os hálózatról I = 4 A áramot vesz fel. Mekkora a felvett villamos teljesítmény?','p-Pv'],
+ ['A motor hatásfoka η = 0,85, a felvett teljesítmény 920 W. Mekkora a leadott teljesítmény?','p-eta'],
+ ['A hajtómű hatásfoka η_h = 0,9, a motoré η_m = 0,8. Mekkora a teljes hatásfok?','p-etat'],
+ ['A keverő tengelyteljesítménye 2000 W, a hajtómű hatásfoka 0,9. Mekkora a motor tengelyteljesítménye?','p-Pm'],
+ ['A motor tengelyteljesítménye 2222 W, hatásfoka 0,8. Mekkora a hálózatból felvett teljesítmény?','p-Pvm'],
+ ['A felvett teljesítmény 2778 W, egyfázisú 230 V-os hálózat. Mekkora az áram?','p-I1'],
+ ['A felvett teljesítmény 2778 W, háromfázisú 400 V-os hálózat. Mekkora az áram?','p-I3'],
+ ['A motor 880 1/min, a keverő 50 1/min. Mekkora az áttétel?','p-in'],
+ ['Egy P = 1,5 kW teljesítményű motor 3 órán át üzemel. Mekkora az elfogyasztott energia kWh-ban?','p-E'],
+ ['Hány joule az 1 kWh?','p-kwh'],
+ ['Szivattyú H_sz = 50 − 1000·Q², rendszer H_r = 20 + 2000·Q². Hogyan találod meg a munkapontot?','p-mp'],
+ ['A munkapontban Q = 0,1 m³/s, H = 35 m (víz). Mekkora a hasznos teljesítmény?','p-Ph'],
+ ['A hasznos teljesítmény 34 340 W, a szivattyú hatásfoka 0,75. Mekkora a tengelyteljesítmény?','p-Pt'],
+ ['A robot 2 m/s-ról 12 m/s-ra gyorsul 5 s alatt. Mekkora a gyorsulás?','z-a'],
+ ['Egy szakaszban a kezdősebesség 2 m/s, a végsebesség 12 m/s, a szakasz 5 s. Mekkora utat tett meg?','z-ds'],
+ ['Három szakasz útja: 35 m, 48 m, 45 m. Mekkora a teljes megtett út?','z-s'],
+ ['A robot 12 m-re van a referenciaponttól, és 128 m utat tett meg. Milyen távol van a mozgás végén?','z-sref'],
+ ['A teljes út 17,5 m, a mozgás 7 s. Mekkora az átlagsebesség?','z-vatl'],
+ ['A 420 kg-os robot lassulása −1,5 m/s². Mekkora fékerő kell?','z-Ffek'],
+ ['m = 310 kg, az 1. szakaszban a = 0,5 m/s². Mekkora erő kell a gyorsításhoz (mozgásellenállás nélkül)?','z-Fgy'],
+ ['A fékerő 630 N, a súrlódási tényező 0,4. Mekkora erővel kell nyomni a féket?','z-N'],
+ ['A fékerő 480 N, a lassítás útja 25,5 m. Mekkora munkát végez a fék?','z-Wf'],
+ ['A fékerő 490 N, a lassuló szakasz átlagsebessége 6 m/s. Mekkora a fék átlagos teljesítménye?','z-Patl'],
+ ['Hogyan néz ki az a–t, a v–t és az s–t diagram egy háromszakaszos mozgásnál?','z-diag'],
+ ['U = 230 V, I = 5,2 A. Mekkora a felvett teljesítmény?','z-Pfel'],
+ ['A motor névleges teljesítménye 1500 W, n = 1440 1/min. Mekkora a maximális nyomaték a tengelyén?','z-Mmax'],
+ ['A felvett teljesítmény 1426 W, a motor hatásfoka 0,92. Mekkora a motor tengelyteljesítménye?','z-Psh'],
+ ['i₁ = 3,5 és i₂ = 2,5. Mekkora az eredő áttétel?','z-ie'],
+ ['n_be = 1440 1/min, az eredő áttétel 8,75. Mekkora a kimenő fordulatszám?','z-nki'],
+ ['η_m = 0,88, η₁ = 0,96, η₂ = 0,94. Mekkora a teljes hatásfok (motor + hajtáslánc)?','z-eta'],
+ ['P_fel = 1196 W, a teljes hatásfok 0,794. Mekkora a hajtáslánc végén mért teljesítmény?','z-Pki'],
+ ['P_fel = 1426 W, P_ki = 1234 W. Mekkora a veszteségteljesítmény?','z-loss'],
+ ['P_ki = 950 W, n_ki = 164,6 1/min. Mekkora a nyomaték a kimeneten?','z-Mki'],
+ ['Hány Wh a 900 kJ?','z-conv'],
+ ['Hány liter a 250 cm³?','z-vol'],
+ ['Hány másodperc a 2 óra?','z-time']
+];
+/* átrendezések, amiket a tanár is használ: [adott képlet, mit fejezünk ki, helyes alak, rossz alakok] */
+var KR=[
+ ['v = s/t','t','t = s/v',['t = v/s','t = v·s','t = s − v']],
+ ['v = s/t','s','s = v·t',['s = v/t','s = t/v','s = v + t']],
+ ['F = m·a','a','a = F/m',['a = F·m','a = m/F','a = F − m']],
+ ['i = n₁/n₂','n₂','n₂ = n₁/i',['n₂ = n₁·i','n₂ = i/n₁','n₂ = n₁ − i']],
+ ['η = P_ki/P_be','P_ki','P_ki = η·P_be',['P_ki = P_be/η','P_ki = η/P_be','P_ki = P_be − η']],
+ ['η = P_ki/P_be','P_be','P_be = P_ki/η',['P_be = η·P_ki','P_be = η/P_ki','P_be = P_ki − η']],
+ ['F₁·k₁ = F₂·k₂','F₂','F₂ = F₁·k₁/k₂',['F₂ = F₁·k₂/k₁','F₂ = F₁/(k₁·k₂)','F₂ = k₁·k₂/F₁']],
+ ['P = M·ω','M','M = P/ω',['M = P·ω','M = ω/P','M = P − ω']],
+ ['P_vill = U·I','I','I = P_vill/U',['I = P_vill·U','I = U/P_vill','I = P_vill − U']],
+ ['v = v₀ + a·t','t','t = (v − v₀)/a',['t = (v + v₀)/a','t = a/(v − v₀)','t = (v − v₀)·a']],
+ ['F = μ·N','N','N = F/μ',['N = F·μ','N = μ/F','N = F − μ']]
+];
+STATNAME['kep-a']='Képlet: mire való?';STATNAME['kep-b']='Képlet: melyik képlet ez?';STATNAME['kep-c']='Képlet: melyik kell a feladathoz?';STATNAME['kep-d']='Képlet: átrendezés';
+var kMiss=load('si_f_miss',{});
+var KQ={mode:'mind',cur:null,n:0,ok:0,done:false};
+function kWeighted(list,keyf){
+  var w=list.map(function(x){return 1+2*Math.min(3,kMiss[keyf(x)]||0);});
+  var sum=w.reduce(function(a,b){return a+b;},0),r=Math.random()*sum;
+  for(var i=0;i<list.length-1;i++){r-=w[i];if(r<=0) return list[i];}
+  return list[list.length-1];
+}
+function kDistract(f,key,n){
+  var rest=KF.filter(function(o){return o.id!==f.id;});
+  var cand=shuffle(rest.filter(function(o){return o.l===f.l;})).concat(shuffle(rest.filter(function(o){return o.l!==f.l;})));
+  var seen={},out=[];seen[f[key]]=1;
+  cand.forEach(function(o){if(!seen[o[key]]&&out.length<n){seen[o[key]]=1;out.push(o[key]);}});
+  return out;
+}
+function kepSetup(){
+  stopTimer();app.style.maxWidth='';
+  var h=pTop('kBack','')+"<h1>Képlet kvíz</h1><p class='sub'>Csak a tanár négy órájának képletei szerepelnek. Válaszd ki, mit gyakorolnál.</p><div class='hub'>"+
+   "<button class='btn' data-km='a'>Képlet → mire való?</button><button class='btn' data-km='b'>Mire való → melyik képlet?</button>"+
+   "<button class='btn' data-km='c'>Feladat → melyik képlet kell?</button><button class='btn' data-km='d'>Átrendezés</button>"+
+   "<button class='btn wide' data-km='e'>Képlet-építő: rakd össze a képletet</button><button class='btn wide' data-km='mind'>Minden vegyesen</button></div>";
+  app.innerHTML=h;
+  document.getElementById('kBack').onclick=home;
+  [].forEach.call(app.querySelectorAll('[data-km]'),function(b){b.onclick=function(){KQ.mode=b.getAttribute('data-km');KQ.n=0;KQ.ok=0;if(KQ.mode==='e'){KBS.n=0;KBS.ok=0;kbNext();}else{kepNext();}};});
+}
+function kepNext(){
+  var t=KQ.mode==='mind'?pick(['a','b','c','d']):KQ.mode,q;
+  if(t==='a'||t==='b'){
+    var f=kWeighted(KF,function(x){return x.id;}),key=t==='a'?'p':'e',qk=t==='a'?'e':'p';
+    var opts=shuffle(kDistract(f,key,3).concat([f[key]]));
+    q={t:t,tag:f.l===5?'ZH-gyakorló (1. ZH)':f.l+'. óra',q:f[qk],ask:t==='a'?'Mire való ez a képlet?':'Melyik képlet ez?',opts:opts,a:f[key],fid:f.id,f:f,formula:t==='b'};
+  }else if(t==='c'){
+    var sc=kWeighted(KS,function(x){return x[1];}),f2=KF.filter(function(o){return o.id===sc[1];})[0];
+    q={t:t,tag:f2.l===5?'ZH-gyakorló (1. ZH)':f2.l+'. óra',q:sc[0],ask:'Melyik képlettel kezdesz?',opts:shuffle(kDistract(f2,'e',3).concat([f2.e])),a:f2.e,fid:f2.id,f:f2,formula:true,text:true};
+  }else{
+    var ri=kWeighted(KR.map(function(r,i){return i;}),function(i){return 'r'+i;}),r=KR[ri];
+    q={t:t,tag:'átrendezés',q:r[0],ask:'Fejezd ki a(z) '+r[1]+' mennyiséget!',opts:shuffle(r[3].concat([r[2]])),a:r[2],fid:'r'+ri,formula:true,reA:r};
+  }
+  KQ.cur=q;KQ.done=false;kepShow();
+}
+function kepShow(){
+  var c=KQ.cur;
+  var h=pTop('kBack','összesen: '+KQ.ok+' / '+KQ.n+' jó')+"<div class='ptag'>"+esc(c.tag)+"</div>"+(c.text?"<div class='ptext'>"+esc(c.q)+"</div>":"<div class='bigq'>"+esc(c.q)+"</div>")+"<p><b>"+esc(c.ask)+"</b></p><div class='hvlist'>";
+  c.opts.forEach(function(o,i){h+="<button class='hvl' data-o='"+i+"'><span>"+esc(o)+"</span></button>";});
+  h+="</div><div id='kFb'></div>";
+  app.innerHTML=h;
+  document.getElementById('kBack').onclick=kepSetup;
+  [].forEach.call(app.querySelectorAll('.hvl'),function(b){b.onclick=function(){kepPick(+b.getAttribute('data-o'));};});
+}
+function kepPick(i){
+  if(KQ.done) return;KQ.done=true;
+  var c=KQ.cur,ok=c.opts[i]===c.a;KQ.n++;if(ok)KQ.ok++;pRecord('kep-'+c.t,ok);
+  kMiss[c.fid]=ok?Math.max(0,(kMiss[c.fid]||0)-1):(kMiss[c.fid]||0)+1;save('si_f_miss',kMiss);
+  var bs=app.querySelectorAll('.hvl');
+  c.opts.forEach(function(o,j){if(o===c.a) bs[j].classList.add('good');});
+  if(!ok) bs[i].classList.add('bad');
+  var info;
+  if(c.t==='d') info="<p><b>"+esc(c.reA[0])+"</b>  →  <b>"+esc(c.a)+"</b></p>";
+  else info="<p><b>"+esc(c.f.e)+"</b></p><p>"+esc(kCap(c.f.p))+"."+(c.f.n?" "+esc(c.f.n)+".":"")+"</p>";
+  document.getElementById('kFb').innerHTML="<div class='pres'><div class='verdict "+(ok?'ok':'bad')+"'>"+(ok?'Helyes!':'Nem ez.')+"</div>"+info+"<button class='btn' id='kNext'>Következő</button></div>";
+  document.getElementById('kNext').onclick=kepNext;document.querySelector('.count').textContent='összesen: '+KQ.ok+' / '+KQ.n+' jó';
+}
+
+
+/* ===================== TANÁRI 1. ZH (50 pont) ===================== */
+var TEACHER={"beu": [{"n": 1, "conv": [{"text": "2,4 t → kg", "v": 2.4, "from": "t", "to": "kg", "ans": 2400.0, "line": "2,4 t = 2400 kg"}, {"text": "5 kWh → MJ", "v": 5.0, "from": "kWh", "to": "MJ", "ans": 18.0, "line": "5 kWh = 18 MJ"}, {"text": "90 km/h → m/s", "v": 90.0, "from": "km/h", "to": "m/s", "ans": 25.0, "line": "90 km/h = 25 m/s"}], "pref": [{"e": 3, "name": "kilo", "sym": "k"}, {"e": -6, "name": "mikro", "sym": "µ"}]}, {"n": 2, "conv": [{"text": "12 cm → m", "v": 12.0, "from": "cm", "to": "m", "ans": 0.12, "line": "12 cm = 0,12 m"}, {"text": "250 cm³ → l", "v": 250.0, "from": "cm³", "to": "l", "ans": 0.25, "line": "250 cm³ = 0,25 l"}, {"text": "3 600 000 J → kWh", "v": 3600000.0, "from": "J", "to": "kWh", "ans": 1.0, "line": "3 600 000 J = 1 kWh"}], "pref": [{"e": 6, "name": "mega", "sym": "M"}, {"e": -3, "name": "milli", "sym": "m"}]}, {"n": 3, "conv": [{"text": "8,5 km → m", "v": 8.5, "from": "km", "to": "m", "ans": 8500.0, "line": "8,5 km = 8500 m"}, {"text": "2 l → cm³", "v": 2.0, "from": "l", "to": "cm³", "ans": 2000.0, "line": "2 l = 2000 cm³"}, {"text": "20 m/s → km/h", "v": 20.0, "from": "m/s", "to": "km/h", "ans": 72.0, "line": "20 m/s = 72 km/h"}], "pref": [{"e": 9, "name": "giga", "sym": "G"}, {"e": -2, "name": "centi", "sym": "c"}]}, {"n": 4, "conv": [{"text": "4 mm → m", "v": 4.0, "from": "mm", "to": "m", "ans": 0.004, "line": "4 mm = 0,004 m"}, {"text": "0,5 m³ → l", "v": 0.5, "from": "m³", "to": "l", "ans": 500.0, "line": "0,5 m³ = 500 l"}, {"text": "900 kJ → Wh", "v": 900.0, "from": "kJ", "to": "Wh", "ans": 250.0, "line": "900 kJ = 250 Wh"}], "pref": [{"e": 12, "name": "tera", "sym": "T"}, {"e": -9, "name": "nano", "sym": "n"}]}, {"n": 5, "conv": [{"text": "35 mg → g", "v": 35.0, "from": "mg", "to": "g", "ans": 0.035, "line": "35 mg = 0,035 g"}, {"text": "2 h → s", "v": 2.0, "from": "h", "to": "s", "ans": 7200.0, "line": "2 h = 7200 s"}, {"text": "150 kW → MW", "v": 150.0, "from": "kW", "to": "MW", "ans": 0.15, "line": "150 kW = 0,15 MW"}], "pref": [{"e": 2, "name": "hekto", "sym": "h"}, {"e": -1, "name": "deci", "sym": "d"}]}, {"n": 6, "conv": [{"text": "6200 nm → µm", "v": 6200.0, "from": "nm", "to": "µm", "ans": 6.2, "line": "6200 nm = 6,2 µm"}, {"text": "3 dm³ → l", "v": 3.0, "from": "dm³", "to": "l", "ans": 3.0, "line": "3 dm³ = 3 l"}, {"text": "7,2 GJ → kWh", "v": 7.2, "from": "GJ", "to": "kWh", "ans": 2000.0, "line": "7,2 GJ = 2000 kWh"}], "pref": [{"e": 1, "name": "deka", "sym": "da"}, {"e": -3, "name": "milli", "sym": "m"}]}, {"n": 7, "conv": [{"text": "0,45 t → kg", "v": 0.45, "from": "t", "to": "kg", "ans": 450.0, "line": "0,45 t = 450 kg"}, {"text": "1800 s → h", "v": 1800.0, "from": "s", "to": "h", "ans": 0.5, "line": "1800 s = 0,5 h"}, {"text": "36 km/h → m/s", "v": 36.0, "from": "km/h", "to": "m/s", "ans": 10.0, "line": "36 km/h = 10 m/s"}], "pref": [{"e": -6, "name": "mikro", "sym": "µ"}, {"e": 6, "name": "mega", "sym": "M"}]}, {"n": 8, "conv": [{"text": "2500 mm → m", "v": 2500.0, "from": "mm", "to": "m", "ans": 2.5, "line": "2500 mm = 2,5 m"}, {"text": "3,5 l → m³", "v": 3.5, "from": "l", "to": "m³", "ans": 0.0035, "line": "3,5 l = 0,0035 m³"}, {"text": "10,8 MJ → kWh", "v": 10.8, "from": "MJ", "to": "kWh", "ans": 3.0, "line": "10,8 MJ = 3 kWh"}], "pref": [{"e": -12, "name": "piko", "sym": "p"}, {"e": 3, "name": "kilo", "sym": "k"}]}, {"n": 9, "conv": [{"text": "54 km/h → m/s", "v": 54.0, "from": "km/h", "to": "m/s", "ans": 15.0, "line": "54 km/h = 15 m/s"}, {"text": "0,002 m³ → cm³", "v": 0.002, "from": "m³", "to": "cm³", "ans": 2000.0, "line": "0,002 m³ = 2000 cm³"}, {"text": "4 kWh → kJ", "v": 4.0, "from": "kWh", "to": "kJ", "ans": 14400.0, "line": "4 kWh = 14 400 kJ"}], "pref": [{"e": -9, "name": "nano", "sym": "n"}, {"e": 9, "name": "giga", "sym": "G"}]}, {"n": 10, "conv": [{"text": "900 g → kg", "v": 900.0, "from": "g", "to": "kg", "ans": 0.9, "line": "900 g = 0,9 kg"}, {"text": "5 mm/s → km/h", "v": 5.0, "from": "mm/s", "to": "km/h", "ans": 0.018, "line": "5 mm/s = 0,018 km/h"}, {"text": "750 W → kW", "v": 750.0, "from": "W", "to": "kW", "ans": 0.75, "line": "750 W = 0,75 kW"}], "pref": [{"e": -2, "name": "centi", "sym": "c"}, {"e": 12, "name": "tera", "sym": "T"}]}], "agv": [{"n": 1, "noun": "AGV robot", "m": 360, "v0": 10, "T": [4, 10, 13], "v": [2, 8, 8], "s0": 15, "mu": 0.25, "q8": {"k": "dist"}, "q10": "N"}, {"n": 2, "noun": "targonca", "m": 420, "v0": 5, "T": [4, 8, 10], "v": [1, 1, 2], "s0": 20, "mu": 0.5, "q8": {"k": "dist"}, "q10": "N"}, {"n": 3, "noun": "szállítókocsi", "m": 520, "v0": 3, "T": [3, 5, 7], "v": [0, 3, 7], "s0": 0, "mu": 0.45, "q8": {"k": "vavg"}, "q10": "N"}, {"n": 4, "noun": "raktári robotkocsi", "m": 480, "v0": 6, "T": [2, 10, 13], "v": [10, 10, 7], "s0": 20, "mu": null, "q8": {"k": "dist"}, "q10": "W"}, {"n": 5, "noun": "gyártósori szállítókocsi", "m": 310, "v0": 6, "T": [6, 10, 15], "v": [9, 5, 5], "s0": 0, "mu": 0.4, "q8": {"k": "faccel", "sec": 1}, "q10": "N"}, {"n": 6, "noun": "autonóm szállítójármű", "m": 490, "v0": 6, "T": [3, 5, 13], "v": [9, 10, 2], "s0": 20, "mu": null, "q8": {"k": "dist"}, "q10": "P"}, {"n": 7, "noun": "AGV robot", "m": 440, "v0": 6, "T": [2, 6, 8], "v": [5, 11, 12], "s0": 0, "mu": 0.5, "q8": {"k": "vavg"}, "q10": "N"}, {"n": 8, "noun": "targonca", "m": 390, "v0": 6, "T": [2, 10, 16], "v": [10, 14, 11], "s0": 0, "mu": null, "q8": {"k": "faccel", "sec": 1}, "q10": "W"}, {"n": 9, "noun": "szállítókocsi", "m": 370, "v0": 0, "T": [4, 7, 10], "v": [2, 8, 5], "s0": 25, "mu": null, "q8": {"k": "dist"}, "q10": "P"}, {"n": 10, "noun": "raktári robotkocsi", "m": 370, "v0": 1, "T": [4, 7, 12], "v": [7, 13, 3], "s0": 0, "mu": 0.4, "q8": {"k": "vavg"}, "q10": "N"}], "haj": [{"n": 1, "I": 7.4, "Pmax": 2200.0, "etam": 0.9, "nbe": 880.0, "s1": {"kind": "fog", "a": 20.0, "b": 72.0, "eta": 0.95}, "s2": {"kind": "szij", "a": 100.0, "b": 160.0, "eta": 0.96}, "qb": "Mmax", "qc": "i", "qe": "eta", "qf": "Pki"}, {"n": 2, "I": 6.5, "Pmax": 2200.0, "etam": 0.92, "nbe": 880.0, "s1": {"kind": "szij", "a": 120.0, "b": 360.0, "eta": 0.95}, "s2": {"kind": "fog", "a": 16.0, "b": 55.0, "eta": 0.98}, "qb": "Mmax", "qc": "i", "qe": "eta", "qf": "Pki"}, {"n": 3, "I": 6.2, "Pmax": 2200.0, "etam": 0.92, "nbe": 960.0, "s1": {"kind": "fog", "a": 23.0, "b": 68.0, "eta": 0.97}, "s2": {"kind": "lanc", "a": 21.0, "b": 50.0, "eta": 0.97}, "qb": "Mshaft", "qc": "i", "qe": "eta", "qf": "Pki"}, {"n": 4, "I": 4.2, "Pmax": 1500.0, "etam": 0.88, "nbe": 720.0, "s1": {"kind": "fog", "a": 24.0, "b": 79.0, "eta": 0.96}, "s2": {"kind": "fog", "a": 24.0, "b": 73.0, "eta": 0.97}, "qb": "Mmax", "qc": "i", "qe": "eta", "qf": "Pki"}, {"n": 5, "I": 5.0, "Pmax": 1500.0, "etam": 0.91, "nbe": 1440.0, "s1": {"kind": "fog", "a": 15.0, "b": 54.0, "eta": 0.96}, "s2": {"kind": "szij", "a": 90.0, "b": 200.0, "eta": 0.93}, "qb": "Mmax", "qc": "i", "qe": "eta", "qf": "Mout"}, {"n": 6, "I": 8.0, "Pmax": 1800.0, "etam": 0.88, "nbe": 880.0, "s1": {"kind": "szij", "a": 80.0, "b": 230.0, "eta": 0.96}, "s2": {"kind": "fog", "a": 24.0, "b": 71.0, "eta": 0.95}, "qb": "Mmax", "qc": "i12", "qe": "eta", "qf": "Pki"}, {"n": 7, "I": 6.2, "Pmax": 1800.0, "etam": 0.91, "nbe": 960.0, "s1": {"kind": "fog", "a": 18.0, "b": 68.0, "eta": 0.98}, "s2": {"kind": "lanc", "a": 20.0, "b": 47.0, "eta": 0.97}, "qb": "Mmax", "qc": "i", "qe": "loss", "qf": "Pki"}, {"n": 8, "I": 7.4, "Pmax": 1800.0, "etam": 0.89, "nbe": 1440.0, "s1": {"kind": "fog", "a": 21.0, "b": 57.0, "eta": 0.94}, "s2": {"kind": "fog", "a": 21.0, "b": 80.0, "eta": 0.95}, "qb": "Mmax", "qc": "i", "qe": "eta", "qf": "Pki"}, {"n": 9, "I": 5.0, "Pmax": 1500.0, "etam": 0.91, "nbe": 960.0, "s1": {"kind": "fog", "a": 20.0, "b": 72.0, "eta": 0.96}, "s2": {"kind": "szij", "a": 90.0, "b": 260.0, "eta": 0.95}, "qb": "Mout", "qc": "i", "qe": "eta", "qf": "Pki"}, {"n": 10, "I": 5.0, "Pmax": 1800.0, "etam": 0.91, "nbe": 720.0, "s1": {"kind": "szij", "a": 110.0, "b": 230.0, "eta": 0.93}, "s2": {"kind": "fog", "a": 24.0, "b": 79.0, "eta": 0.94}, "qb": "Mshaft", "qc": "i", "qe": "loss", "qf": "Pki"}]};
+var SIQ=[
+ ['hosszúság','l',['s','h','d'],'méter',[],'m'],
+ ['tömeg','m',[],'kilogramm',[],'kg'],
+ ['idő','t',[],'másodperc',[],'s'],
+ ['áramerősség','I',[],'amper',[],'A'],
+ ['hőmérséklet','T',[],'kelvin',[],'K'],
+ ['anyagmennyiség','n',[],'mól',['mol'],'mol'],
+ ['fényerősség','Iv',['I_v'],'kandela',['candela'],'cd']
+];
+var SIQO=SIQ.map(function(q){return {id:'q:'+q[0],qn:q[0],qs:q[1],qalts:q[2],un:q[3],ualts:q[4],us:q[5]};});
+var NOUNS=['AGV robot','targonca','szállítókocsi','raktári robotkocsi','gyártósori szállítókocsi','autonóm szállítójármű'];
+var KINDN={fog:'fogaskerékpár',szij:'szíjhajtás',lanc:'lánchajtás'};
+var SB=['₁','₂','₃'];
+
+/* ---------- átváltások a beugróhoz (a tanár példáinak mintájára) ---------- */
+var BEU_CONV=[
+ ['t','kg',1000,[0.45,0.8,1.5,2.4,3.2],'1 t = 1000 kg'],
+ ['kg','t',0.001,[450,800,1500,2400],'1 t = 1000 kg'],
+ ['g','kg',0.001,[250,900,1500,350],'1 kg = 1000 g'],
+ ['mg','g',0.001,[35,250,1200],'1 g = 1000 mg'],
+ ['kg','g',1000,[0.5,2,3.5],'1 kg = 1000 g'],
+ ['cm','m',0.01,[12,35,250,80],'1 m = 100 cm'],
+ ['mm','m',0.001,[4,250,2500,750],'1 m = 1000 mm'],
+ ['km','m',1000,[8.5,2,0.35,12],'1 km = 1000 m'],
+ ['nm','µm',0.001,[6200,350,1500],'1 µm = 1000 nm'],
+ ['cm³','l',0.001,[250,500,1500],'1 l = 1 dm³ = 1000 cm³'],
+ ['l','cm³',1000,[2,0.5,3.5],'1 l = 1000 cm³'],
+ ['m³','l',1000,[0.5,0.002,3],'1 m³ = 1000 l'],
+ ['l','m³',0.001,[3.5,250,1200],'1 m³ = 1000 l'],
+ ['dm³','l',1,[3,7,12],'1 dm³ = 1 l'],
+ ['m³','cm³',1e6,[0.002,0.5,1.2],'1 m³ = 10⁶ cm³'],
+ ['h','s',3600,[0.5,2,1.5,3],'1 h = 3600 s'],
+ ['s','h',1/3600,[1800,3600,7200,5400],'1 h = 3600 s'],
+ ['km/h','m/s',1/3.6,[36,54,72,90,108,18],'km/h → m/s: ÷ 3,6'],
+ ['m/s','km/h',3.6,[5,10,20,25,15],'m/s → km/h: × 3,6'],
+ ['mm/s','km/h',0.0036,[5,10,50,250],'1 mm/s = 0,001 m/s = 0,0036 km/h'],
+ ['W','kW',0.001,[750,1200,2500],'1 kW = 1000 W'],
+ ['kW','MW',0.001,[150,2500,800],'1 MW = 1000 kW'],
+ ['kW','W',1000,[1.5,0.75,3],'1 kW = 1000 W'],
+ ['kWh','MJ',3.6,[2,5,2.5,10],'1 kWh = 3,6 MJ'],
+ ['MJ','kWh',1/3.6,[3.6,7.2,10.8,18],'1 kWh = 3,6 MJ'],
+ ['J','kWh',1/3.6e6,[3.6e6,7.2e6,1.8e7,9e6],'1 kWh = 3 600 000 J'],
+ ['kJ','Wh',1/3.6,[360,900,1800,3600],'1 Wh = 3600 J = 3,6 kJ'],
+ ['GJ','kWh',1e9/3.6e6,[3.6,7.2,1.8,0.36],'1 kWh = 3,6 MJ'],
+ ['kWh','kJ',3600,[1,2,4,0.5],'1 kWh = 3600 kJ'],
+ ['Wh','J',3600,[2,5,0.5],'1 Wh = 3600 J']
+];
+function genBeuConv(excl){
+  var t,tries=0;do{t=pick(BEU_CONV);tries++;}while(excl&&excl.indexOf(t)>-1&&tries<50);
+  var v=pick(t[3]),ans=v*t[2];
+  return {tpl:t,text:pfmt(v)+' '+t[0]+' → '+t[1],to:t[1],ans:ans,line:pfmt(v)+' '+t[0]+' = '+pfmt(ans)+' '+t[1],rule:t[4]};
+}
+function prefParts(e){
+  var it=BU_PREF.filter(function(p){return p.e===e;})[0];
+  return [TX('10'+sup(e)+': a prefixum neve',it.names[0],false,it.names.slice(1)),TX('10'+sup(e)+': a prefixum jele',it.sym,true,it.sym==='µ'?['u']:[])];
+}
+/* beugró-sor: row = {conv:[{text,to,ans,line,rule}], pref:[{e,..}]} vagy null (véletlen) */
+function beuModel(row){
+  var q=pick(SIQ),conv,pref;
+  if(row){conv=row.conv.map(function(c){return {text:c.text,to:c.to,ans:c.ans,line:c.line};});pref=row.pref.map(function(p){return p.e;});}
+  else{
+    var used=[],es=BU_PREF.map(function(p){return p.e;});
+    conv=[0,1,2].map(function(){var c=genBeuConv(used);used.push(c.tpl);return c;});
+    var e1=pick(es),e2;do{e2=pick(es);}while(e2===e1);pref=[e1,e2];
+  }
+  var subs=[
+   {key:'0.a',pts:0,text:'Írd fel az alábbi alapmennyiség jelét, SI-mértékegységét és a mértékegység jelét: '+q[0],
+    parts:[TX('Az alapmennyiség jele',q[1],true,q[2]),TX('Az SI-mértékegysége',q[3],false,q[4]),TX('A mértékegység jele',q[5],true)],
+    steps:[q[0]+': jel '+q[1]+(q[2].length?' (a tanár szerint l, s, h, d… közül általában l)':'')+' · '+q[3]+' · '+q[5]]},
+   {key:'0.b',pts:0,text:'Váltsd át: '+conv.map(function(c){return c.text;}).join('  ·  '),
+    parts:conv.map(function(c){return PT(c.text,c.to,c.ans,0.005);}),steps:conv.map(function(c){return c.line+(c.rule?'  ('+c.rule+')':'');})},
+   {key:'0.c',pts:0,text:'Írd fel a szorzószámhoz tartozó prefixum nevét és jelét: '+pref.map(function(e){return '10'+sup(e);}).join('  ·  '),
+    parts:prefParts(pref[0]).concat(prefParts(pref[1])),
+    steps:pref.map(function(e){var it=BU_PREF.filter(function(p){return p.e===e;})[0];return '10'+sup(e)+' – '+it.names[0]+', '+it.sym;})}
+  ];
+  return {kind:'beu',title:'0. Beugró',ptsLabel:'0 pont (feltétel)',text:'A valódi ZH-n ez a folytatás feltétele: nem ér pontot, de legalább elégséges szinten kell teljesíteni.',subs:subs};
+}
+
+/* ---------- AGV mozgásfeladat (26 pont) ---------- */
+function agvSegs(P){
+  var S=[],vs=P.v0,tp=0,k;
+  for(k=0;k<3;k++){var d=P.T[k]-tp,ve=P.v[k];S.push({t0:tp,t1:P.T[k],d:d,vs:vs,ve:ve,a:(ve-vs)/d,ds:(vs+ve)/2*d});vs=ve;tp=P.T[k];}
+  return S;
+}
+function agvMotionOf(v0,ends,T,s0){
+  var segs=[],vs=v0,tp=0;
+  for(var i=0;i<3;i++){segs.push({t0:tp,t1:T[i],a:(ends[i]-vs)/(T[i]-tp),v0:vs});vs=ends[i];tp=T[i];}
+  return {segs:segs,T:T[2],s0:s0||0};
+}
+function dgPts2(m,kind){
+  var pts=[],s=m.s0||0;
+  m.segs.forEach(function(g){
+    var d=g.t1-g.t0;
+    if(kind==='a'){pts.push([g.t0,g.a]);pts.push([g.t1,g.a]);}
+    else if(kind==='v'){pts.push([g.t0,g.v0]);pts.push([g.t1,g.v0+g.a*d]);}
+    else{for(var k=0;k<=12;k++){var tau=d*k/12;pts.push([g.t0+tau,s+g.v0*tau+0.5*g.a*tau*tau]);}s+=g.v0*d+0.5*g.a*d*d;}
+  });
+  return pts;
+}
+function dgSig2(m,kind){return JSON.stringify(dgPts2(m,kind).map(function(p){return [Math.round(p[0]*10)/10,Math.round(p[1]*10)/10];}));}
+function agvDiagOptions(P,kind){
+  var base=agvMotionOf(P.v0,P.v,P.T,P.s0),sigs=[dgSig2(base,kind)],opts=[{m:base,c:true}],tries=0;
+  while(opts.length<3&&tries<800){
+    tries++;
+    var v0=P.v0,e=P.v.slice(),T=P.T.slice(),op=rint(0,4),k=rint(0,2);
+    if(op===0){var t=e[0];e[0]=e[2];e[2]=t;}
+    else if(op===1){e[k]=Math.max(0,e[k]+pick([-3,-2,2,3]));}
+    else if(op===2){v0=Math.max(0,v0+pick([-3,-2,2,3]));}
+    else if(op===3){var d=[T[0],T[1]-T[0],T[2]-T[1]].reverse();T=[d[0],d[0]+d[1],d[0]+d[1]+d[2]];}
+    else{var pv=k===0?v0:e[k-1];e[k]=Math.max(0,2*pv-e[k]);}
+    var m=agvMotionOf(v0,e,T,P.s0),sg=dgSig2(m,kind);
+    if(sigs.indexOf(sg)>-1) continue;
+    sigs.push(sg);opts.push({m:m,c:false});
+  }
+  return opts;
+}
+function agvRand(){
+  for(var tr=0;tr<5000;tr++){
+    var m=pick([300,310,350,360,370,390,400,420,440,480,490,520]),v0=pick([0,1,2,3,5,6,6,10]);
+    var D=[pick([2,3,4,5,6]),pick([2,3,4,5,6,8]),pick([2,3,4,5,6,8])];
+    var dec=rint(0,2),v=v0,ends=[],ok=true,pos=0;
+    for(var k=0;k<3;k++){
+      var a=(k===dec)?-pick([0.5,1,1.5,2]):pick([0,0.5,1,1.5,2]),ve=v+a*D[k];
+      if(ve<0||ve>16||Math.abs(ve-Math.round(ve))>1e-9){ok=false;break;}
+      if(a>0) pos++;
+      ends.push(Math.round(ve));v=ve;
+    }
+    if(!ok||pos<1) continue;
+    var T=[D[0],D[0]+D[1],D[0]+D[1]+D[2]],q8k=pick(['dist','vavg','faccel']),q10=pick(['N','W','P']),q8={k:q8k};
+    if(q8k==='faccel'){var secs=[],vs=v0;for(var j=0;j<3;j++){if(ends[j]>vs) secs.push(j+1);vs=ends[j];}q8.sec=pick(secs);}
+    return {n:0,noun:pick(NOUNS),m:m,v0:v0,T:T,v:ends,s0:q8k==='dist'?pick([12,15,20,25]):0,mu:q10==='N'?pick([0.25,0.3,0.4,0.45,0.5]):null,q8:q8,q10:q10};
+  }
+}
+function agvModel(P,withDiag){
+  var S=agvSegs(P),k,s=S[0].ds+S[1].ds+S[2].ds,T3=P.T[2],dec=0;
+  for(k=2;k>=0;k--){if(S[k].a<0) dec=k;}
+  var dd=S[dec],F=P.m*Math.abs(dd.a);
+  var txt='Egy m = '+P.m+' kg tömegű '+P.noun+' '+P.v0+' m/s kezdősebességgel indul, mozgása három szakaszból áll: 0–'+P.T[0]+' s; '+P.T[0]+'–'+P.T[1]+' s; '+P.T[1]+'–'+P.T[2]+' s. Az egyes szakaszok végén az alábbi sebességeket mértük: v₁ = '+P.v[0]+' m/s; v₂ = '+P.v[1]+' m/s; v₃ = '+P.v[2]+' m/s.'+(P.s0?' A jármű t = 0 pillanatban a mérési ponttól s₀ = '+P.s0+' m távolságra helyezkedik el.':'')+(P.q10==='N'?' A fék súrlódási tényezője '+pfmt(P.mu)+'.':'')+' (Minden részfeladat 2 pont.)';
+  var subs=[];
+  subs.push({key:'1.a–c',pts:6,text:'Mekkora a gyorsulás az 1., 2. és 3. szakaszban?',
+    parts:S.map(function(x,i){return PT('a'+SB[i]+' ('+x.t0+'–'+x.t1+' s)','m/s²',x.a,0.02);}),
+    steps:S.map(function(x,i){return 'a'+SB[i]+' = (v'+SB[i]+' − v'+(i?SB[i-1]:'₀')+')/Δt = ('+pfmt(x.ve)+' − '+pfmt(x.vs)+')/'+x.d+' = '+pfmt(x.a)+' m/s²';})});
+  subs.push({key:'1.d–f',pts:6,text:'Mekkora utat tett meg az 1., 2. és 3. szakaszban?',
+    parts:S.map(function(x,i){return PT('Δs'+SB[i]+' ('+x.t0+'–'+x.t1+' s)','m',x.ds,0.02);}),
+    steps:['Állandó gyorsulásnál az út az átlagsebességből adódik: Δs = (v_kezdő + v_vég)/2 · Δt'].concat(S.map(function(x,i){return 'Δs'+SB[i]+' = ('+pfmt(x.vs)+' + '+pfmt(x.ve)+')/2 · '+x.d+' = '+pfmt(x.ds)+' m';}))});
+  var q8t,q8p,q8s;
+  if(P.q8.k==='dist'){q8t='milyen távol helyezkedik el a jármű a mozgás végén a referenciaponttól?';q8p=PT('távolság a referenciaponttól','m',P.s0+s,0.02);q8s='s₀ + s = '+P.s0+' + '+pfmt(s)+' = '+pfmt(P.s0+s)+' m';}
+  else if(P.q8.k==='vavg'){q8t='mekkora az átlagsebesség a teljes mozgás alatt?';q8p=PT('átlagsebesség','m/s',s/T3,0.02);q8s='v_átl = s/t = '+pfmt(s)+'/'+T3+' = '+pfmt(s/T3)+' m/s (≈ '+pfmt(s/T3*3.6)+' km/h)';}
+  else{var sc=S[P.q8.sec-1];q8t='mekkora erő szükséges a gyorsításhoz a '+P.q8.sec+'. szakaszban (a mozgásellenállást ne vegye figyelembe)?';q8p=PT('gyorsító erő','N',P.m*sc.a,0.02);q8s='F = m·a'+SB[P.q8.sec-1]+' = '+P.m+' · '+pfmt(sc.a)+' = '+pfmt(P.m*sc.a)+' N';}
+  subs.push({key:'1.g–h',pts:4,text:'Mekkora a teljes megtett út, és '+q8t,parts:[PT('teljes megtett út','m',s,0.02),q8p],
+    steps:['s = Δs₁ + Δs₂ + Δs₃ = '+pfmt(S[0].ds)+' + '+pfmt(S[1].ds)+' + '+pfmt(S[2].ds)+' = '+pfmt(s)+' m',q8s]});
+  var q10t,q10p,q10s;
+  if(P.q10==='N'){q10t='mekkora erővel kell hatnunk a fékre, ha a súrlódási tényező '+pfmt(P.mu)+'?';q10p=PT('a fékre ható erő (N)','N',F/P.mu,0.02);q10s='N = F/μ = '+pfmt(F)+'/'+pfmt(P.mu)+' = '+pfmt(F/P.mu)+' N';}
+  else if(P.q10==='W'){q10t='mekkora munkát végez a fék a lassítás közben?';q10p=PT('a fék munkája','J',F*dd.ds,0.02);q10s='W = F·Δs'+SB[dec]+' = '+pfmt(F)+' · '+pfmt(dd.ds)+' = '+pfmt(F*dd.ds)+' J';}
+  else{q10t='mekkora a fék átlagos teljesítménye a lassítás közben?';q10p=PT('a fék átlagos teljesítménye','W',F*dd.ds/dd.d,0.02);q10s='P_átl = F·Δs/Δt = F·v_átl = '+pfmt(F)+' · '+pfmt(dd.ds/dd.d)+' = '+pfmt(F*dd.ds/dd.d)+' W';}
+  subs.push({key:'1.i–j',pts:4,text:'Mekkora fékerő szükséges a lassításhoz, és '+q10t,parts:[PT('fékerő','N',F,0.02),q10p],
+    steps:['A lassulás a '+(dec+1)+'. szakaszban van: F = m·|a| = '+P.m+' · '+pfmt(Math.abs(dd.a))+' = '+pfmt(F)+' N',q10s]});
+  if(withDiag!==false){
+    var mo=agvMotionOf(P.v0,P.v,P.T,P.s0),sS=P.s0;
+    var cumS=[P.s0];S.forEach(function(x){sS+=x.ds;cumS.push(sS);});
+    var lab=[['1.k','a','gyorsulás–idő (a–t)','a–t: lépcsős, '+S.map(function(x){return x.t0+'–'+x.t1+' s: '+pfmt(x.a)+' m/s²';}).join(' · ')],
+             ['1.l','v','sebesség–idő (v–t)','v–t: törtvonal '+[[0,P.v0]].concat(P.v.map(function(v,i){return [P.T[i],v];})).map(function(p){return '('+p[0]+'; '+p[1]+')';}).join(', ')+' pontokon át; a meredekség a gyorsulás'],
+             ['1.m','s','távolság–idő (s–t)','s–t: '+pfmt(P.s0)+' m-ről '+pfmt(cumS[3])+' m-re, folytonos; a görbe meredeksége a sebesség (a = 0 szakaszon egyenes, egyébként parabolaív); értékek a szakaszhatárokon: '+cumS.map(pfmt).join(' → ')]];
+    lab.forEach(function(l){subs.push({key:l[0],pts:2,text:'Melyik a mozgáshoz tartozó '+l[2]+' diagram? (Papíron rajzold fel előbb, tengelyfelirattal és jellemző értékekkel.)',mcq:{kind:l[1],opts:shuffle(agvDiagOptions(P,l[1]))},sel:null,steps:[l[3]]});});
+  }
+  return {kind:'agv',title:'1. Feladat: mozgás',ptsLabel:'26 pont',text:txt,subs:subs,P:P,motion:agvMotionOf(P.v0,P.v,P.T,P.s0)};
+}
+
+/* ---------- hajtáslánc-feladat (24 pont) ---------- */
+function hajStage(kind){
+  if(kind==='fog') return {kind:kind,a:rint(15,24),b:rint(54,80),eta:pick([0.94,0.95,0.96,0.97,0.98])};
+  if(kind==='szij'){var d1=pick([80,90,100,110,120]),c=[];for(var d=160;d<=360;d+=10){if(d/d1>=1.6&&d/d1<=3.3) c.push(d);}return {kind:kind,a:d1,b:pick(c),eta:pick([0.93,0.94,0.95,0.96])};}
+  return {kind:kind,a:rint(20,23),b:rint(47,50),eta:pick([0.96,0.97,0.98])};
+}
+function hajRand(){
+  var combos=[['fog','szij'],['szij','fog'],['fog','lanc'],['fog','fog']];
+  for(var tr=0;tr<2000;tr++){
+    var c=pick(combos),I=pick([4.2,5,5.2,6.2,6.5,7.4,8]),Pmax=pick([1500,1800,2200]),etam=pick([0.88,0.89,0.9,0.91,0.92]),nbe=pick([720,880,960,1440]);
+    if(230*I*etam>Pmax) continue;
+    var qb=pick(['Mmax','Mmax','Mmax','Mshaft','Mout']),qf=pick(['Pki','Pki','Pki','Mout']);
+    if(qb==='Mout'&&qf==='Mout') qf='Pki';
+    return {n:0,I:I,Pmax:Pmax,etam:etam,nbe:nbe,s1:hajStage(c[0]),s2:hajStage(c[1]),qb:qb,qc:pick(['i','i','i','i12']),qe:pick(['eta','eta','eta','loss']),qf:qf};
+  }
+}
+function hajModel(P){
+  var U=230,Pfel=U*P.I,w=2*Math.PI*P.nbe/60,Mmax=P.Pmax/w,Psh=Pfel*P.etam,Msh=Psh/w;
+  function ratio(s){return s.b/s.a;}
+  var i1=ratio(P.s1),i2=ratio(P.s2),i=i1*i2,nki=P.nbe/i,eta=P.etam*P.s1.eta*P.s2.eta,Pki=Pfel*eta,loss=Pfel-Pki,wki=2*Math.PI*nki/60,Mki=Pki/wki;
+  function sdesc(n,s){return n+'. fokozat ('+KINDN[s.kind]+'): '+(s.kind==='szij'?'d₁ = '+s.a+' mm, d₂ = '+s.b+' mm':'z₁ = '+s.a+', z₂ = '+s.b)+', hatásfoka η'+SB[n-1]+' = '+pfmt(s['eta'])+'.';}
+  var txt='230 V-os hálózatról üzemelő motorral és kétfokozatú mechanikus hajtáslánccal ('+KINDN[P.s1.kind]+' + '+KINDN[P.s2.kind]+') üzemeltetünk egy berendezést. Tápfeszültség: U = 230 V, felvett áramerősség: I = '+pfmt(P.I)+' A. A motor névleges (tengely-)teljesítménye Pmax = '+P.Pmax+' W, hatásfoka ηm = '+pfmt(P.etam)+', tengelyének fordulatszáma nbe = '+P.nbe+' 1/min. '+sdesc(1,P.s1)+' '+sdesc(2,P.s2)+' (Minden részfeladat 4 pont.)';
+  var ichar=function(s){return s.kind==='szij'?'d₂/d₁':'z₂/z₁';};
+  var subs=[];
+  subs.push({key:'2.a',pts:4,text:'Mekkora a villamos hálózatból felvett teljesítmény?',parts:[PT('felvett teljesítmény','W',Pfel,0.02)],steps:['P_fel = U·I = 230 · '+pfmt(P.I)+' = '+pfmt(Pfel)+' W']});
+  var bp,bs,bt;
+  if(P.qb==='Mmax'){bt='Mekkora a maximális nyomaték, ami a villanymotor tengelyén ébredhet?';bp=PT('M_max','Nm',Mmax,0.02);bs=['ω = 2π·n/60 = 2π·'+P.nbe+'/60 = '+pfmt(w)+' rad/s','M_max = P_max/ω = '+P.Pmax+'/'+pfmt(w)+' = '+pfmt(Mmax)+' Nm'];}
+  else if(P.qb==='Mshaft'){bt='Mekkora nyomaték ébred a motor tengelyén a felvett áram mellett?';bp=PT('M a motor tengelyén','Nm',Msh,0.02);bs=['P_tengely = P_fel·η_m = '+pfmt(Pfel)+' · '+pfmt(P.etam)+' = '+pfmt(Psh)+' W','ω = 2π·'+P.nbe+'/60 = '+pfmt(w)+' rad/s; M = P/ω = '+pfmt(Psh)+'/'+pfmt(w)+' = '+pfmt(Msh)+' Nm'];}
+  else{bt='Mekkora nyomaték ébred a hajtáslánc kimenetén?';bp=PT('M_ki','Nm',Mki,0.02);bs=['ω_ki = 2π·n_ki/60 = 2π·'+pfmt(nki)+'/60 = '+pfmt(wki)+' rad/s','M_ki = P_ki/ω_ki = '+pfmt(Pki)+'/'+pfmt(wki)+' = '+pfmt(Mki)+' Nm'];}
+  subs.push({key:'2.b',pts:4,text:bt,parts:[bp],steps:bs});
+  if(P.qc==='i12') subs.push({key:'2.c',pts:4,text:'Mekkora az egyes fokozatok áttétele, és mekkora az eredő áttétel?',parts:[PT('i₁','',i1,0.02),PT('i₂','',i2,0.02),PT('eredő áttétel','',i,0.02)],steps:['i₁ = '+ichar(P.s1)+' = '+P.s1.b+'/'+P.s1.a+' = '+pfmt(i1),'i₂ = '+ichar(P.s2)+' = '+P.s2.b+'/'+P.s2.a+' = '+pfmt(i2),'i = i₁·i₂ = '+pfmt(i1)+' · '+pfmt(i2)+' = '+pfmt(i)+' (soros kapcsolásnál az áttételek szorzódnak)']});
+  else subs.push({key:'2.c',pts:4,text:'Mekkora az eredő áttétel?',parts:[PT('eredő áttétel','',i,0.02)],steps:['i = '+ichar(P.s1)+' · '+ichar(P.s2)+' = '+P.s1.b+'/'+P.s1.a+' · '+P.s2.b+'/'+P.s2.a+' = '+pfmt(i1)+' · '+pfmt(i2)+' = '+pfmt(i)]});
+  subs.push({key:'2.d',pts:4,text:'Mekkora a kimenő fordulatszám?',parts:[PT('kimenő fordulatszám','1/min',nki,0.02)],steps:['n_ki = n_be/i = '+P.nbe+'/'+pfmt(i)+' = '+pfmt(nki)+' 1/min']});
+  var etaStep='η = η_m·η₁·η₂ = '+pfmt(P.etam)+' · '+pfmt(P.s1.eta)+' · '+pfmt(P.s2.eta)+' = '+pfmt(eta);
+  if(P.qe==='eta') subs.push({key:'2.e',pts:4,text:'Mekkora a teljes hatásfok (motor + hajtáslánc)?',parts:[PT('teljes hatásfok','',eta,0.02)],steps:[etaStep+' (soros elemeknél a hatásfokok szorzódnak)','Csak a hajtáslánc: η₁·η₂ = '+pfmt(P.s1.eta*P.s2.eta)+', ha a feladat kifejezetten ezt kérdezi']});
+  else subs.push({key:'2.e',pts:4,text:'Mekkora a teljes veszteségteljesítmény?',parts:[PT('veszteségteljesítmény','W',loss,0.03)],steps:[etaStep,'P_ki = P_fel·η = '+pfmt(Pfel)+' · '+pfmt(eta)+' = '+pfmt(Pki)+' W','P_veszt = P_fel − P_ki = '+pfmt(Pfel)+' − '+pfmt(Pki)+' = '+pfmt(loss)+' W']});
+  var chk='Ellenőrzés: a motor tengelyteljesítménye P_fel·η_m = '+pfmt(Psh)+' W kisebb, mint P_max = '+P.Pmax+' W, tehát a motor nincs túlterhelve ✓';
+  if(P.qf==='Pki') subs.push({key:'2.f',pts:4,text:'Mekkora a hajtáslánc végén mért teljesítmény?',parts:[PT('P_ki','W',Pki,0.02)],steps:['P_ki = P_fel·η = '+pfmt(Pfel)+' · '+pfmt(eta)+' = '+pfmt(Pki)+' W',chk]});
+  else subs.push({key:'2.f',pts:4,text:'Mekkora nyomaték ébred a hajtáslánc kimenetén?',parts:[PT('M_ki','Nm',Mki,0.02)],steps:['P_ki = P_fel·η = '+pfmt(Pfel)+' · '+pfmt(eta)+' = '+pfmt(Pki)+' W','ω_ki = 2π·n_ki/60 = 2π·'+pfmt(nki)+'/60 = '+pfmt(wki)+' rad/s','M_ki = P_ki/ω_ki = '+pfmt(Pki)+'/'+pfmt(wki)+' = '+pfmt(Mki)+' Nm']});
+  return {kind:'haj',title:'2. Feladat: hajtáslánc',ptsLabel:'24 pont',text:txt,subs:subs,P:P};
+}
+
+/* ---------- gyakorló típusok a tanári feladatokból ---------- */
+PTOPICS.push({id:'zh1',name:'Tanári 1. ZH feladatok (beugró, mozgás, hajtáslánc)'});
+(function(){
+  function add(id,name,topic,gen){PTYPES.push({id:id,topic:topic,name:name,gen:gen});STATNAME[id]=name;}
+  add('beu-atv','Beugró-átváltások (t, kWh, cm³, km/h…)','atv',function(){var c=genBeuConv();return {text:'Váltsd át: '+c.text,parts:[PT('eredmény',c.to,c.ans,0.005)],steps:[c.line,c.rule]};});
+  add('beu-si','SI alapmennyiség: jel, mértékegység, jele','zh1',function(){var q=pick(SIQ);return {text:'Írd fel az alábbi alapmennyiség jelét, SI-mértékegységét és a mértékegység jelét: '+q[0],parts:[TX('Az alapmennyiség jele',q[1],true,q[2]),TX('Az SI-mértékegysége',q[3],false,q[4]),TX('A mértékegység jele',q[5],true)],steps:[q[0]+': '+q[1]+' · '+q[3]+' · '+q[5]]};});
+  add('beu-pref','Prefixum neve és jele a váltószámból','zh1',function(){var es=BU_PREF.map(function(p){return p.e;}),e=pick(es);return {text:'Írd fel a szorzószámhoz tartozó prefixum nevét és jelét: 10'+sup(e),parts:prefParts(e),steps:BU_PREF.filter(function(p){return p.e===e;}).map(function(p){return '10'+sup(e)+' – '+p.names[0]+', '+p.sym;})};});
+  function sub(modelFn,idx){return function(){var m=modelFn(),s=m.subs[idx];return {text:m.text.replace(' (Minden részfeladat 2 pont.)','').replace(' (Minden részfeladat 4 pont.)','')+'  Kérdés: '+s.text,parts:s.parts,steps:s.steps};};}
+  var ag=function(){return agvModel(agvRand(),false);},hj=function(){return hajModel(hajRand());};
+  add('agv-a','AGV: gyorsulások szakaszonként','zh1',sub(ag,0));
+  add('agv-b','AGV: utak szakaszonként','zh1',sub(ag,1));
+  add('agv-c','AGV: teljes út és távolság, átlagsebesség vagy gyorsító erő','zh1',sub(ag,2));
+  add('agv-d','AGV: fékerő, fékező erő, munka vagy teljesítmény','zh1',sub(ag,3));
+  add('haj-a','Hajtáslánc: felvett teljesítmény','zh1',sub(hj,0));
+  add('haj-b','Hajtáslánc: nyomatékok','zh1',sub(hj,1));
+  add('haj-c','Hajtáslánc: eredő áttétel','zh1',sub(hj,2));
+  add('haj-d','Hajtáslánc: kimenő fordulatszám','zh1',sub(hj,3));
+  add('haj-e','Hajtáslánc: teljes hatásfok vagy veszteség','zh1',sub(hj,4));
+  add('haj-f','Hajtáslánc: kimenő teljesítmény vagy nyomaték','zh1',sub(hj,5));
+})();
+
+/* ---------- részletes diagram (értékekkel) ---------- */
+function dgSVG2(m,kind){
+  var pts=dgPts2(m,kind),W=270,H=160,L=30,R=14,T=22,B=24;
+  var ys=pts.map(function(p){return p[1];}),dmin=Math.min.apply(null,ys),dmax=Math.max.apply(null,ys);
+  var ymin=Math.min(0,dmin),ymax=Math.max(0,dmax);if(ymax===ymin) ymax=ymin+1;
+  var pad=(ymax-ymin)*0.15;ymax+=pad;if(ymin<0) ymin-=pad;
+  function X(t){return L+(W-L-R)*t/m.T;}
+  function Y(y){return T+(H-T-B)*(ymax-y)/(ymax-ymin);}
+  var d=pts.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1);}).join(' ');
+  var name={a:'a [m/s²]',v:'v [m/s]',s:'s [m]'}[kind];
+  var svg="<svg viewBox='0 0 "+W+" "+H+"' role='img' aria-label='"+kind+"–t diagram'>";
+  var bt=[0].concat(m.segs.map(function(g){return g.t1;}));
+  bt.forEach(function(t){svg+="<line x1='"+X(t)+"' y1='"+T+"' x2='"+X(t)+"' y2='"+(H-B)+"' stroke='var(--line)' stroke-width='1' stroke-dasharray='3 3'/><text x='"+X(t)+"' y='"+(H-9)+"' font-size='9.5' text-anchor='middle' fill='var(--muted)'>"+t+"</text>";});
+  svg+="<line x1='"+L+"' y1='"+Y(0)+"' x2='"+(W-R)+"' y2='"+Y(0)+"' stroke='var(--muted)' stroke-width='1.3'/><line x1='"+L+"' y1='"+T+"' x2='"+L+"' y2='"+(H-B)+"' stroke='var(--muted)' stroke-width='1.3'/>";
+  svg+="<path d='"+d+"' fill='none' stroke='var(--ink)' stroke-width='2.4' stroke-linejoin='round'/><text x='"+(L+4)+"' y='"+(T-8)+"' font-size='9.5' fill='var(--muted)'>"+name+"</text><text x='"+(L-8)+"' y='"+(H-9)+"' font-size='9.5' text-anchor='end' fill='var(--muted)'>t [s]</text>";
+  var lab=[];
+  if(kind==='a') m.segs.forEach(function(g){lab.push([(g.t0+g.t1)/2,g.a,'a']);});
+  else{
+    var s=m.s0||0;
+    bt.forEach(function(t,i){
+      var y;
+      if(kind==='v'){y=i===0?m.segs[0].v0:m.segs[i-1].v0+m.segs[i-1].a*(m.segs[i-1].t1-m.segs[i-1].t0);}
+      else{if(i>0){var g=m.segs[i-1],dd=g.t1-g.t0;s+=g.v0*dd+0.5*g.a*dd*dd;}y=s;}
+      lab.push([t,y,kind]);
+    });
+  }
+  lab.forEach(function(l){
+    var x=X(l[0]),yy=Y(l[1]),anc=l[2]==='a'?'middle':(l[0]===0?'start':(l[0]===m.T?'end':'middle'));
+    if(l[2]!=='a') svg+="<circle cx='"+x+"' cy='"+yy+"' r='2.6' fill='var(--ink)'/>";
+    svg+="<text x='"+(anc==='start'?x+3:(anc==='end'?x-3:x))+"' y='"+(l[2]==='a'&&l[1]<0?yy+13:yy-6)+"' font-size='9.5' font-weight='600' text-anchor='"+anc+"' fill='var(--ink)'>"+pfmt(l[1])+"</text>";
+  });
+  return svg+"</svg>";
+}
+
+/* ---------- 1. ZH: felület ---------- */
+['beu','agv','haj'].forEach(function(g){});
+STATNAME['z1-beu-0.a']='1. ZH beugró 0.a (SI alapmennyiség)';STATNAME['z1-beu-0.b']='1. ZH beugró 0.b (átváltások)';STATNAME['z1-beu-0.c']='1. ZH beugró 0.c (prefixumok)';
+STATNAME['z1-agv-1.a–c']='1. ZH AGV: gyorsulások';STATNAME['z1-agv-1.d–f']='1. ZH AGV: utak';STATNAME['z1-agv-1.g–h']='1. ZH AGV: teljes út és társa';STATNAME['z1-agv-1.i–j']='1. ZH AGV: fékerő és társa';
+STATNAME['z1-agv-1.k']='1. ZH AGV: a–t diagram';STATNAME['z1-agv-1.l']='1. ZH AGV: v–t diagram';STATNAME['z1-agv-1.m']='1. ZH AGV: s–t diagram';
+['a','b','c','d','e','f'].forEach(function(k){STATNAME['z1-haj-2.'+k]='1. ZH hajtáslánc 2.'+k;});
+var Z1={groups:[],t0:0,done:false,title:'1. ZH'};
+function z1Setup(){
+  stopTimer();app.style.maxWidth='';
+  var st=load('si_z1',{src:'teacher',n:1}),h=pTop('z1Back','')+"<h1>1. ZH</h1><p class='sub'>A tanár ZH-gyakorló fájljának szerkezete: beugró (0 pont: SI alapmennyiség, három átváltás, két prefixum), mozgásfeladat (26 pont) és hajtáslánc-feladat (24 pont), összesen 50 pont. A diagramokat itt választással kell megadni; a ZH-n rajzolni kell, ezért papíron rajzold fel előbb.</p>";
+  h+="<div class='opts'><label><input type='radio' name='z1src' value='teacher'"+(st.src==='teacher'?' checked':'')+"> A tanár feladatsora, az ő számaival. Sorszám:&nbsp;<select id='z1n'>";
+  for(var i=1;i<=10;i++) h+="<option value='"+i+"'"+(st.n===i?' selected':'')+">"+i+"</option>";
+  h+="</select></label><label><input type='radio' name='z1src' value='random'"+(st.src==='random'?' checked':'')+"> Új feladatok véletlen számokkal, ugyanilyen szerkezettel</label></div>";
+  h+="<div class='hub'><button class='btn wide' data-z1='all'>Teljes 1. ZH (50 pont)</button><button class='btn' data-z1='beu'>Csak a beugró</button><button class='btn' data-z1='agv'>Csak a mozgásfeladat</button><button class='btn wide' data-z1='haj'>Csak a hajtáslánc-feladat</button></div>";
+  app.innerHTML=h;
+  document.getElementById('z1Back').onclick=home;
+  [].forEach.call(app.querySelectorAll('[data-z1]'),function(b){b.onclick=function(){
+    var src=app.querySelector('input[name=z1src]:checked').value,n=+document.getElementById('z1n').value;
+    save('si_z1',{src:src,n:n});z1Start(b.getAttribute('data-z1'),src,n);
+  };});
+}
+function z1Start(part,src,n){
+  stopTimer();var T=src==='teacher',gs=[],tt={beu:'Beugró',agv:'Mozgásfeladat',haj:'Hajtáslánc',all:'Teljes 1. ZH'}[part];
+  if(part==='all'||part==='beu') gs.push(beuModel(T?TEACHER.beu[n-1]:null));
+  if(part==='all'||part==='agv') gs.push(agvModel(T?TEACHER.agv[n-1]:agvRand(),true));
+  if(part==='all'||part==='haj') gs.push(hajModel(T?TEACHER.haj[n-1]:hajRand()));
+  Z1={groups:gs,t0:Date.now(),done:false,title:tt+(T?' ('+n+'. sor)':' (új számokkal)'),part:part};
+  z1Show();
+  window.pTimer=setInterval(function(){var el=document.getElementById('z1Timer');if(el&&!Z1.done) el.textContent=fmtTime(Date.now()-Z1.t0);},500);
+}
+function z1Sub(q,pre,gi,si){
+  var h="<div class='zq'><div class='zqh'><span>"+esc(q.key)+"</span><span>"+(q.pts?q.pts+' pont':'')+"</span></div><div class='ptext'>"+esc(q.text)+"</div>";
+  if(q.mcq){h+="<div class='optgrid'>";q.mcq.opts.forEach(function(o,i){h+="<button class='optg' data-zg='"+gi+"' data-zs='"+si+"' data-zo='"+i+"'>"+dgSVG2(o.m,q.mcq.kind)+"</button>";});h+="</div>";}
+  else h+=partsHTML(q.parts,pre);
+  return h+"<div id='"+pre+"res'></div></div>";
+}
+function z1Show(){
+  app.style.maxWidth='760px';
+  var h=pTop('z1Back',"<span class='timer' id='z1Timer'>0:00</span>")+"<h1>"+esc(Z1.title)+"</h1><div id='z1Summary'></div>";
+  Z1.groups.forEach(function(g,gi){
+    h+="<div class='zsec'><h2>"+esc(g.title)+"</h2><span>"+esc(g.ptsLabel)+"</span></div><div class='ptext'>"+esc(g.text)+"</div>";
+    g.subs.forEach(function(q,si){h+=z1Sub(q,'g'+gi+'s'+si+'_',gi,si);});
+  });
+  h+="<div class='gacts' style='margin-top:16px'><button class='btn' id='z1Submit'>Beadás</button><button class='btn ghost' id='z1New'>Új feladat</button></div>";
+  app.innerHTML=h;
+  document.getElementById('z1Back').onclick=z1Setup;
+  document.getElementById('z1Submit').onclick=z1Submit;
+  document.getElementById('z1New').onclick=z1Setup;
+  [].forEach.call(app.querySelectorAll('[data-zo]'),function(b){b.onclick=function(){
+    if(Z1.done) return;
+    var gi=+b.getAttribute('data-zg'),si=+b.getAttribute('data-zs');Z1.groups[gi].subs[si].sel=+b.getAttribute('data-zo');
+    [].forEach.call(app.querySelectorAll('[data-zg="'+gi+'"][data-zs="'+si+'"]'),function(x){x.classList.remove('pick');});b.classList.add('pick');
+  };});
+  var ins=[].slice.call(app.querySelectorAll('.pin input'));
+  ins.forEach(function(el,i){el.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();if(i<ins.length-1) ins[i+1].focus();}};});
+  if(ins[0]) ins[0].focus();
+}
+function z1Grade(pct){if(pct<=50) return 'elégtelen';if(pct<=60) return 'elégséges';if(pct<=72) return 'közepes';if(pct<=85) return 'jó';return 'jeles';}
+function z1Submit(){
+  if(Z1.done) return;Z1.done=true;stopTimer();
+  var ms=Date.now()-Z1.t0,total=0,max=0,rows=[],beuOk=0,beuAll=0;
+  Z1.groups.forEach(function(g,gi){
+    var gp=0,gm=0;
+    g.subs.forEach(function(q,si){
+      var pre='g'+gi+'s'+si+'_',pts=0,full=false;
+      if(q.mcq){
+        var good=q.sel!==null&&q.sel!==undefined&&q.mcq.opts[q.sel].c,bs=app.querySelectorAll('[data-zg="'+gi+'"][data-zs="'+si+'"]');
+        q.mcq.opts.forEach(function(o,j){if(o.c) bs[j].classList.add('good');});
+        if(q.sel!==null&&q.sel!==undefined&&!good) bs[q.sel].classList.add('bad');
+        pts=good?q.pts:0;full=good;
+      }else{
+        var okc=pGrade(q.parts,pre);pts=q.pts*okc/q.parts.length;full=okc===q.parts.length;
+        if(g.kind==='beu'){beuOk+=okc;beuAll+=q.parts.length;}
+      }
+      gp+=pts;gm+=q.pts;
+      var extra='';
+      if(q.mcq&&q.key==='1.m'){extra="<p><b>A mozgás diagramjai értékekkel:</b></p><div class='optgrid'>"+['a','v','s'].map(function(k){return "<div class='optg' style='border-color:var(--line)'>"+dgSVG2(g.motion,k)+"</div>";}).join('')+"</div>";}
+      document.getElementById(pre+'res').innerHTML="<div class='pres'>"+(g.kind==='beu'?'':"<div class='verdict "+(full?'ok':'bad')+"'>"+(Math.round(pts*10)/10).toString().replace('.',',')+" / "+q.pts+" pont</div>")+stepsHTML(q.steps)+extra+"</div>";
+      pRecord('z1-'+g.kind+'-'+q.key,full);
+    });
+    if(g.kind!=='beu'){total+=gp;max+=gm;}
+    rows.push([g.title,gp,gm,g.kind]);
+  });
+  var h="<div class='pres'>";
+  if(max>0){var pct=Math.round(100*total/max);h+="<div class='verdict "+(pct>50?'ok':'bad')+"'>"+(Math.round(total*10)/10).toString().replace('.',',')+" / "+max+" pont ("+pct+"%)</div>";}
+  if(beuAll>0){var pass=beuOk/beuAll>=0.51;h+="<p>Beugró: <b>"+(pass?'megfelelt':'nem felelt meg')+"</b> ("+beuOk+" / "+beuAll+" helyes). A valódi ZH-n a beugró a folytatás feltétele.</p>";}
+  rows.forEach(function(r){if(r[3]!=='beu') h+="<p>"+esc(r[0])+": "+(Math.round(r[1]*10)/10).toString().replace('.',',')+" / "+r[2]+" pont</p>";});
+  h+="<p>Idő: "+fmtTime(ms)+"</p>";
+  if(max>0&&Z1.part==='all') h+="<p class='note'>A 50 pontos ZH pontosztályozását a tanár fájlja nem közli. Ha ugyanazok a százalékhatárok érvényesek, mint a 100 pontos minta ZH-nál (≤50% elégtelen, 51–60% elégséges, 61–72% közepes, 73–85% jó, 86%+ jeles), ez "+z1Grade(Math.round(100*total/max))+" lenne. A részpontozás becslés: az alkérdésen belüli jó részeredményeket arányosan számoltam.</p>";
+  h+="<div class='gacts'><button class='btn' id='z1Again'>Új feladat</button></div></div>";
+  document.getElementById('z1Summary').innerHTML=h;
+  document.getElementById('z1Again').onclick=z1Setup;
+  document.getElementById('z1Submit').disabled=true;
+  document.getElementById('z1Summary').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+
+/* ---------- Képlet-építő ---------- */
+function ktok(e){return e.match(/[\p{L}][\p{L}\p{N}_\u2080-\u2089]*|\d+(?:,\d+)?|[²³½√|=+−\-·\/()×÷]/gu)||[];}
+var KBRAW=[
+ ['b-vst',2,'v = s/t','sebesség egyenletes mozgásnál az útból és az időből'],
+ ['b-svt',2,'s = v·t','megtett út egyenletes mozgásnál'],
+ ['b-vv0',2,'v = v₀ + a·t','végsebesség egyenletesen változó mozgásnál'],
+ ['b-s',2,'s = v₀·t + ½·a·t²','megtett út egyenletesen változó mozgásnál'],
+ ['b-va',2,'v = a·t','végsebesség állóból indulva'],
+ ['b-sa',2,'s = ½·a·t²','megtett út állóból indulva'],
+ ['b-a',2,'a = (v₂ − v₁)/t','gyorsulás egy szakaszon a kezdő- és a végsebességből'],
+ ['b-F',3,'F = m·a','erő a tömegből és a gyorsulásból (kinetika alapja)'],
+ ['b-aF',3,'a = F/m','gyorsulás az erőből és a tömegből'],
+ ['b-Ng',3,'N = m·g','nyomóerő vízszintes talajon'],
+ ['b-Fs',3,'F_s = μ·N','súrlódási erő'],
+ ['b-Fnet',3,'F_net = F − F_s','nettó erő súrlódásnál'],
+ ['b-M',3,'M = F·r','nyomaték (erő és erőkar szorzata)'],
+ ['b-emelo',3,'F₁·k₁ = F₂·k₂','egyensúly az emelőnél'],
+ ['b-F2',3,'F₂ = F₁·k₁/k₂','az egyensúlyozó erő az emelőnél'],
+ ['b-R',3,'R = F₁ + F₂','támaszerő, ha mindkét erő lefelé hat'],
+ ['b-k1',3,'k₁ = L − k₂','a hosszú erőkar a rúd hosszából és a rövid karból'],
+ ['b-in',3,'i = n₁/n₂','áttétel a fordulatszámokból'],
+ ['b-iz',3,'i = z₂/z₁','áttétel fogaskeréknél vagy láncnál a fogszámokból'],
+ ['b-id',3,'i = d₂/d₁','áttétel szíjhajtásnál az átmérőkből'],
+ ['b-n2',3,'n₂ = n₁/i','hajtott fordulatszám'],
+ ['b-M2',3,'M₂ = i·M₁·η','hajtott nyomaték hatásfokkal'],
+ ['b-ie',3,'i = i₁·i₂','eredő áttétel soros fokozatoknál'],
+ ['b-ee',3,'η_e = η₁·η₂·η₃','eredő hatásfok három fokozatnál'],
+ ['b-Mf',3,'M_f = F_s·r','féknyomaték'],
+ ['b-W',3,'W = M·φ','fékezési energia (munka) forgásnál'],
+ ['b-w',4,'ω = 2π·n/60','szögsebesség a fordulatszámból'],
+ ['b-P',4,'P = M·ω','teljesítmény a nyomatékból és a szögsebességből'],
+ ['b-Mp',4,'M = P/ω','nyomaték a teljesítményből és a szögsebességből'],
+ ['b-Pv',4,'P_vill = U·I','villamos teljesítmény (egyfázisú)'],
+ ['b-eta',4,'η = P_ki/P_be','hatásfok: a leadott és a felvett teljesítmény aránya'],
+ ['b-Pki',4,'P_ki = η·P_be','leadott teljesítmény a hatásfokból'],
+ ['b-Pbe',4,'P_be = P_ki/η','felvett teljesítmény a leadottból'],
+ ['b-etat',4,'η = η_h·η_m','teljes hatásfok hajtóműnél és motornál'],
+ ['b-Pm',4,'P_motor = P/η_h','a motor tengelyteljesítménye a szükséges teljesítményből'],
+ ['b-I1',4,'I = P_vill/U','áram egy fázison'],
+ ['b-I3',4,'I = P_vill/(√3·400)','áram három fázison'],
+ ['b-E',4,'E = P·t','energia a teljesítményből és az időből'],
+ ['b-Ph',4,'P_h = ρ·g·Q·H','hasznos teljesítmény a munkapontban'],
+ ['b-Pt',4,'P_t = P_h/η','tengelyteljesítmény a hasznos teljesítményből'],
+ ['b-mp',4,'H_sz = H_r','a munkapont feltétele (a szivattyú és a rendszer görbéje egyenlő)'],
+ ['b-ds',5,'Δs = (v_kezdő + v_vég)/2·Δt','szakaszon megtett út állandó gyorsulásnál az átlagsebességből'],
+ ['b-sref',5,'távolság = s₀ + s','távolság a referenciaponttól a mozgás végén'],
+ ['b-vatl',5,'v_átl = s/t','átlagsebesség a teljes mozgás alatt'],
+ ['b-Ffek',5,'F = m·|a|','fékerő a lassulás nagyságából'],
+ ['b-N',5,'N = F/μ','rányomó erő a fékerőből és a súrlódási tényezőből'],
+ ['b-Wf',5,'W = F·Δs','a fék munkája a lassítás közben'],
+ ['b-Patl',5,'P_átl = F·v_átl','a fék átlagos teljesítménye a lassítás közben'],
+ ['b-Pfel',5,'P_fel = U·I','a hálózatból felvett teljesítmény'],
+ ['b-Mmax',5,'M_max = P_max/ω','a motor maximális nyomatéka a névleges teljesítményből'],
+ ['b-Psh',5,'P_tengely = P_fel·η_m','a motor tengelyteljesítménye a felvett teljesítményből'],
+ ['b-etaz',5,'η = η_m·η₁·η₂','teljes hatásfok (motor + hajtáslánc)'],
+ ['b-Pkiz',5,'P_ki = P_fel·η','a hajtáslánc végén mért teljesítmény'],
+ ['b-loss',5,'P_veszt = P_fel − P_ki','veszteségteljesítmény'],
+ ['b-nki',5,'n_ki = n_be/i','kimenő fordulatszám'],
+ ['b-wki',5,'ω_ki = 2π·n_ki/60','kimenő szögsebesség'],
+ ['b-Mki',5,'M_ki = P_ki/ω_ki','nyomaték a hajtáslánc kimenetén']
+];
+var KB=KBRAW.map(function(r){return {id:r[0],l:r[1],e:r[2],p:r[3],tok:ktok(r[2])};});
+STATNAME['kep-e']='Képlet: összerakás (építő)';
+
+function kbCompile(tk){
+  var pos=0,names={};
+  function peek(){return tk[pos];}
+  function isStart(t){return t!==undefined&&(/^[\p{L}]/u.test(t)||/^\d/.test(t)||t==='('||t==='√'||t==='½');}
+  function mul(a,b){return function(e){return a(e)*b(e);};}
+  function div(a,b){return function(e){return a(e)/b(e);};}
+  function primary(){
+    var t=tk[pos++];
+    if(t===undefined) throw 0;
+    if(t==='½') return function(){return 0.5;};
+    if(/^\d/.test(t)){var n=parseFloat(t.replace(',','.'));return function(){return n;};}
+    if(/^[\p{L}]/u.test(t)){names[t]=1;return function(e){return e[t];};}
+    if(t==='('){var v=expr();if(tk[pos++]!==')') throw 0;return v;}
+    if(t==='√'){var a=primary();return function(e){return Math.sqrt(a(e));};}
+    if(t==='|'){var b=expr();if(tk[pos++]!=='|') throw 0;return function(e){return Math.abs(b(e));};}
+    throw 0;
+  }
+  function power(){
+    var v=primary();
+    while(peek()==='²'||peek()==='³'){var p=tk[pos++]==='²'?2:3;v=(function(w,q){return function(e){return Math.pow(w(e),q);};})(v,p);}
+    return v;
+  }
+  function unary(){
+    if(peek()==='−'||peek()==='-'){pos++;var u=unary();return function(e){return -u(e);};}
+    return power();
+  }
+  function term(){
+    var v=unary();
+    for(;;){
+      var t=peek();
+      if(t==='·'||t==='×'){pos++;v=mul(v,unary());}
+      else if(t==='/'||t==='÷'){pos++;v=div(v,unary());}
+      else if(isStart(t)&&/^\d/.test(tk[pos-1]||'')){v=mul(v,power());}
+      else break;
+    }
+    return v;
+  }
+  function expr(){
+    var v=term();
+    while(peek()==='+'||peek()==='−'||peek()==='-'){
+      var op=tk[pos++],r=term();
+      v=(function(a,b,o){return function(e){return o==='+'?a(e)+b(e):a(e)-b(e);};})(v,r,op);
+    }
+    return v;
+  }
+  try{var f=expr();if(pos!==tk.length) return null;return {f:f,names:names};}catch(x){return null;}
+}
+function kbSplit(tk){var i=tk.indexOf('=');if(i<1||i!==tk.lastIndexOf('=')||i===tk.length-1) return null;return [tk.slice(0,i),tk.slice(i+1)];}
+function kbEq(a,b){
+  var A=kbSplit(a),B=kbSplit(b);if(!A||!B) return false;
+  var a0=kbCompile(A[0]),a1=kbCompile(A[1]),b0=kbCompile(B[0]),b1=kbCompile(B[1]);
+  if(!a0||!a1||!b0||!b1) return false;
+  var names={};[a0,a1,b0,b1].forEach(function(c){Object.keys(c.names).forEach(function(n){names[n]=1;});});
+  function eq(p,q){return Math.abs(p-q)<=1e-9*Math.max(1,Math.abs(p),Math.abs(q));}
+  var dir=true,swp=true;
+  for(var t=0;t<8;t++){
+    var env={};Object.keys(names).forEach(function(n){env[n]=1.3+Math.random()*7;});
+    var x0=a0.f(env),x1=a1.f(env),y0=b0.f(env),y1=b1.f(env);
+    if(!(eq(x0,y0)&&eq(x1,y1))) dir=false;
+    if(!(eq(x0,y1)&&eq(x1,y0))) swp=false;
+  }
+  return dir||swp;
+}
+var KBS={cur:null,n:0,ok:0,done:false,line:[],bank:[]};
+function kbNext(){
+  var f=kWeighted(KB,function(x){return 'b:'+x.id;}),toks=f.tok.slice(),others=[];
+  KB.forEach(function(o){if(o.id!==f.id&&o.l===f.l) o.tok.forEach(function(t){if(/^[\p{L}]/u.test(t)&&toks.indexOf(t)<0&&others.indexOf(t)<0) others.push(t);});});
+  var dec=shuffle(others).slice(0,2),ops=['+','−','/','·','²'].filter(function(o){return toks.indexOf(o)<0;});
+  if(ops.length) dec.push(pick(ops));
+  KBS.cur=f;KBS.bank=shuffle(toks.concat(dec)).map(function(t,i){return {t:t,used:false};});KBS.line=[];KBS.done=false;kbShow();
+}
+function kbShow(){
+  var c=KBS.cur;
+  var h=pTop('kbBack','összesen: '+KBS.ok+' / '+KBS.n+' jó')+"<div class='ptag'>"+(c.l===5?'ZH-gyakorló (1. ZH)':c.l+'. óra')+"</div><h1 style='font-size:30px'>Rakd össze a képletet</h1><div class='ptext'>"+esc(kCap(c.p))+"</div>"+
+   "<div class='kline'>"+(KBS.line.length?KBS.line.map(function(bi){return "<span class='ktk'>"+esc(KBS.bank[bi].t)+"</span>";}).join(''):"<span class='kph'>koppints az elemekre a megfelelő sorrendben</span>")+"</div>"+
+   "<div class='kbank'>"+KBS.bank.map(function(b,i){return "<button class='ktk tkb"+(b.used?' used':'')+"' data-bi='"+i+"'"+(b.used?' disabled':'')+">"+esc(b.t)+"</button>";}).join('')+"</div>"+
+   "<div class='gacts' style='margin-top:12px'><button class='btn ghost' id='kUndo'>⌫ Vissza</button><button class='btn ghost' id='kClr'>Törlés</button><button class='btn' id='kChk'>Ellenőrzés</button></div><div id='kbFb'></div>";
+  app.innerHTML=h;
+  document.getElementById('kbBack').onclick=kepSetup;
+  [].forEach.call(app.querySelectorAll('[data-bi]'),function(b){b.onclick=function(){if(KBS.done) return;var i=+b.getAttribute('data-bi');KBS.bank[i].used=true;KBS.line.push(i);kbShow();};});
+  document.getElementById('kUndo').onclick=function(){if(KBS.done||!KBS.line.length) return;KBS.bank[KBS.line.pop()].used=false;kbShow();};
+  document.getElementById('kClr').onclick=function(){if(KBS.done) return;KBS.line.forEach(function(i){KBS.bank[i].used=false;});KBS.line=[];kbShow();};
+  document.getElementById('kChk').onclick=kbCheck;
+}
+function kbCheck(){
+  if(KBS.done||!KBS.line.length) return;KBS.done=true;
+  var c=KBS.cur,tokens=KBS.line.map(function(i){return KBS.bank[i].t;}),ok=kbEq(tokens,c.tok);
+  KBS.n++;if(ok)KBS.ok++;pRecord('kep-e',ok);
+  kMiss['b:'+c.id]=ok?Math.max(0,(kMiss['b:'+c.id]||0)-1):(kMiss['b:'+c.id]||0)+1;save('si_f_miss',kMiss);
+  document.getElementById('kbFb').innerHTML="<div class='pres'><div class='verdict "+(ok?'ok':'bad')+"'>"+(ok?'Helyes!':'Nem ez a képlet.')+"</div>"+(ok?'':"<p>Te ezt raktad össze: <b>"+esc(tokens.join(' '))+"</b></p>")+"<p><b>"+esc(c.e)+"</b></p><p>"+esc(kCap(c.p))+".</p><button class='btn' id='kbNext'>Következő</button></div>";
+  document.getElementById('kbNext').onclick=kbNext;document.querySelector('.count').textContent='összesen: '+KBS.ok+' / '+KBS.n+' jó';
+}
+
+/* ---------- SI alapmennyiségek: tábla és paklik ---------- */
+var _buShow=buShow,_buCheck=buCheck;
+buShow=function(c,it){
+  if(c.type==='qn') return it.qn;if(c.type==='qs') return it.qs;if(c.type==='un') return it.un;if(c.type==='us') return it.us;
+  return _buShow(c,it);
+};
+buCheck=function(c,it,raw){
+  var t=c.type;
+  if(t==='qn'){var a=nrm(raw);return a!==''&&a===nrm(it.qn);}
+  if(t==='qs'){var x=symNorm(raw);return x!==''&&[it.qs].concat(it.qalts).some(function(s){return symNorm(s)===x;});}
+  if(t==='un'){var b=nrm(raw);return b!==''&&[it.un].concat(it.ualts).some(function(s){return nrm(s)===b;});}
+  if(t==='us'){var y=symNorm(raw);return y!==''&&y===symNorm(it.us);}
+  return _buCheck(c,it,raw);
+};
+function buAlapTable(){
+  var rev=load('si_bu_rev',false),items=buWeighted(SIQO,7);
+  var rows=items.map(function(it){
+    var g=rev?pick(['qn','un','us']):'qn';
+    return {item:it,cells:[{type:'qn',given:g==='qn'},{type:'qs',given:false},{type:'un',given:g==='un'},{type:'us',given:g==='us'}]};
+  });
+  return {stat:'bu-alap',title:'SI alapmennyiségek (0.a)',heads:['Mennyiség','Jele','SI-mértékegység','Egység jele'],rows:rows};
+}
+STATNAME['bu-alap']='SI beugró 0.a: alapmennyiségek';
+(function(){
+  BUILT.unshift({id:'jel-alap',name:'SI alapmennyiségek: jel, mértékegység, jele (beugró 0.a)',desc:'A tanár ZH-gyakorlója szerint a beugróban ezek közül egyet kapsz',cards:SIQ.map(function(q){return [q[0],'jel: '+q[1]+' · '+q[3]+' · '+q[5]];})});
+  var d=BUILT.filter(function(x){return x.id==='jel-egyseg';})[0];
+  d.cards.push(['mol','mól (anyagmennyiség)']);d.cards.push(['cd','kandela (fényerősség)']);
+  JDECKS['jel-alap']='SI alapmennyiségek';STATNAME['kviz-jel-alap']='Jelek kvíz: SI alapmennyiségek';
+})();
+
 home();
 </script>
 </body>
